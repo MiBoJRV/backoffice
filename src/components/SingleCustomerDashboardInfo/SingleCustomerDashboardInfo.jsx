@@ -153,6 +153,20 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
     };
 
+    //Create Transaction
+    const [isTransactionCreateModalOpen, setIsTransactionCreateModalOpen] = useState(false);
+
+    const openCreateTransactionModal = () => {
+        setIsTransactionCreateModalOpen(true);
+    };
+    const closeCreateTransactionModal = () => {
+        setIsTransactionCreateModalOpen(false);
+    };
+
+    const handleCreateTransaction = (formData) => {
+
+    };
+
 
     return (
         <DashboardContent>
@@ -296,11 +310,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                         {...customerData}
                     />
                 </div>
-                {/*{isAssetCreateModalOpen && (*/}
-                {/*    <Modal isOpen={setIsAssetCreateModalOpen} onClose={() => setIsAssetCreateModalOpen(false)}>*/}
-                {/*        <CreateAdminAssetModalContent isOpen={isAssetCreateModalOpen} onClose={closeCreateAssetModal} onCreate={handleCreateAsset} />*/}
-                {/*    </Modal>*/}
-                {/*)}*/}
+
             </div>
             <div className="transactions-info-content">
                 <div className="control">
@@ -380,7 +390,22 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             </div>
             <div className="customers-table-info-content">
-                <AdminTransactionsTable />
+                <div className="control">
+                    <h2>All Transactions</h2>
+                    <button
+                        onClick={openCreateTransactionModal}
+                    >
+
+                        Create
+                    </button>
+                </div>
+                <div className="transactions-info-group">
+                <AdminTransactionsTable
+                    isTransactionCreateModalOpen={isTransactionCreateModalOpen}
+                    setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}
+                    {...customerData}
+                />
+                </div>
             </div>
 
         </DashboardContent>
