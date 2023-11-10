@@ -1,8 +1,8 @@
 {
   "name": "backoffice",
-  "homepage": "https://mibojrv.github.io/backoffice/",
+  "homepage": "https://mibojrv.github.io/backoffice",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",

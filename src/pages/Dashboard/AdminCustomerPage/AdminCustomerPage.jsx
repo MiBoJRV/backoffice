@@ -16,7 +16,7 @@ const AdminCustomerPage = () => {
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
-            navigate('/');
+            navigate('/login');
         }
     }, [navigate]);
 

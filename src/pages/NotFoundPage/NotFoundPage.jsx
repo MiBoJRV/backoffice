@@ -6,9 +6,12 @@ export const NotFoundPage = () => {
         <PageContent>
             <h1>404</h1>
             <h2>Page Not Found</h2>
-            <p><
-                Link to="/login"/>
-            </p>
+            <h3>
+                <a href="/login">Login</a>
+            </h3>
+            {/*<p><*/}
+            {/*    Link to="/login"/>*/}
+            {/*</p>*/}
         </PageContent>
     )
 }

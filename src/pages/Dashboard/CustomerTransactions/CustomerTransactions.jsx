@@ -15,7 +15,7 @@ const CustomerTransactions = ({setUserRole}) => {
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
-            navigate('/');
+            navigate('/login');
         }
     }, [navigate]);
 
