@@ -14,6 +14,7 @@ import AdminCustomerPage from "./pages/Dashboard/AdminCustomerPage/AdminCustomer
 
 const App = () => {
     const [userRole, setUserRole] = useState(null);
+    console.log(userRole)
     return (
         <Router>
             <Routes>
@@ -23,13 +24,12 @@ const App = () => {
                                <Login setUserRole={setUserRole}/>
                            </LoginLayout>}
                 />
-
-                <Route path="/"
-                       element=
-                           {<LoginLayout>
-                               <Login setUserRole={setUserRole}/>
-                           </LoginLayout>}
-                />
+                {/*<Route path="/"*/}
+                {/*       element=*/}
+                {/*           {<LoginLayout>*/}
+                {/*               <Login setUserRole={setUserRole}/>*/}
+                {/*           </LoginLayout>}*/}
+                {/*/>*/}
                 <Route path="/customer/dashboard"
                        element=
                            {<CustomerLayout setUserRole={setUserRole}>

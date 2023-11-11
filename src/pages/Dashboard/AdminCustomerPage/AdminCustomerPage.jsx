@@ -15,7 +15,11 @@ const AdminCustomerPage = () => {
     const navigate = useNavigate();
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
+        const userRole = localStorage.getItem('userRole');
         if (!accessToken) {
+            navigate('/login');
+        }
+        if (userRole !== "Admin") {
             navigate('/login');
         }
     }, [navigate]);
