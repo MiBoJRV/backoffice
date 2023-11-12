@@ -10,6 +10,8 @@ import add from '../../assets/images/add.svg';
 import useAdminCustomerLocalDelete from '../../hooks/useAdminCustomerLocalDelete.jsx';
 import useAdminCustomerLocalAdd from "../../hooks/useAdminCustomerAdd.jsx";
 import useAdminCustomerLocalUpdate from "../../hooks/useAdminCustomerLocalUpdate.jsx";
+import angleLeft from "../../assets/images/angle-left.svg";
+import angleRight from "../../assets/images/angle-right.svg";
 
 const CustomerCustomersTable = ({accessToken}) => {
     const {
@@ -71,82 +73,90 @@ const CustomerCustomersTable = ({accessToken}) => {
 
     return (
         <CustomerCustomersContent>
-            <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Country</th>
-                    <th>Recovered amount</th>
-                    <th>Date</th>
-                    {userRole === 'Admin' && (<td></td>)}
-                    {userRole === 'Admin' && (
-                        <td>
-                            <img
-                                className="add"
-                                src={add}
-                                alt="icon"
-                                onClick={openAddModal}
-                            />
-                        </td>
-                    )}
-                </tr>
-                </thead>
-                <tbody>
-                {customers.slice(0, pageSize).map((customer) => (
-                    <tr key={customer.id}>
-                        <td>{customer.numericId}</td>
-                        <td>{customer.name}</td>
-                        <td>{customer.status}</td>
-                        <td>{customer.country}</td>
-                        <td>{customer.recoveredAmount}</td>
-                        <td>{customer.date}</td>
+            <div className="table-size">
+                Show
+                <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                entries
+            </div>
+            <div className="table-info">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Country</th>
+                        <th>Recovered amount</th>
+                        <th>Date</th>
+                        {userRole === 'Admin' && (<td></td>)}
                         {userRole === 'Admin' && (
                             <td>
                                 <img
-                                    className="edit"
-                                    src={edit}
+                                    className="add"
+                                    src={add}
                                     alt="icon"
-                                    onClick={() => {
-                                        handleEditCustomer(customer);
-                                    }}
+                                    onClick={openAddModal}
                                 />
                             </td>
                         )}
-                        {userRole === 'Admin' && (
-                            <td>
-                                <img className="bin"
-                                     src={bin}
-                                     alt="icon"
-                                     onClick={() => handleDeleteCustomer(customer.id)}/>
-                            </td>
-                        )}
                     </tr>
-                ))}
-                </tbody>
-            </table>
-            <div>
+                    </thead>
+                    <tbody>
+                    {customers.slice(0, pageSize).map((customer) => (
+                        <tr key={customer.id}>
+                            <td>{customer.numericId}</td>
+                            <td>{customer.name}</td>
+                            <td>{customer.status}</td>
+                            <td>{customer.country}</td>
+                            <td>{customer.recoveredAmount}</td>
+                            <td>{customer.date}</td>
+                            {userRole === 'Admin' && (
+                                <td>
+                                    <img
+                                        className="edit"
+                                        src={edit}
+                                        alt="icon"
+                                        onClick={() => {
+                                            handleEditCustomer(customer);
+                                        }}
+                                    />
+                                </td>
+                            )}
+                            {userRole === 'Admin' && (
+                                <td>
+                                    <img className="bin"
+                                         src={bin}
+                                         alt="icon"
+                                         onClick={() => handleDeleteCustomer(customer.id)}/>
+                                </td>
+                            )}
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="table-entries">
                 <p>
                     Showing {startIndex} to {endIndex} of {totalEntries} entries
                 </p>
-                {totalPages > 1 && (
-                    <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                        {'<'}
-                    </button>
-                )}
-                <span>{currentPage}</span>
-                {totalPages > 1 && (
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                        {'>'}
-                    </button>
-                )}
+                <div className="table-pages">
+                    {totalPages > 1 && (
+                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                            <img className="page-icon" src={angleLeft} alt="icon"/>
+                        </button>
+                    )}
+                    <span className="page">{currentPage}</span>
+                    {totalPages > 1 && (
+                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                            <img className="page-icon" src={angleRight} alt="icon"/>
+                        </button>
+                    )}
+                </div>
             </div>
             {isModalOpen && selectedCustomer && (
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
@@ -155,7 +165,8 @@ const CustomerCustomersTable = ({accessToken}) => {
             )}
             {isAddModalOpen && (
                 <Modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)}>
-                    <AddCustomerModalContent customer={selectedCustomer} onSave={handleSaveEditedCustomer} onClose={closeAddModal}/>
+                    <AddCustomerModalContent customer={selectedCustomer} onSave={handleSaveEditedCustomer}
+                                             onClose={closeAddModal}/>
                 </Modal>
             )}
         </CustomerCustomersContent>

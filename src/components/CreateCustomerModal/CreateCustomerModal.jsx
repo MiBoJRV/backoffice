@@ -47,7 +47,7 @@ const CreateCustomerModal = ({isOpen, onClose, onCreate, fetchCustomers}) => {
 
     return (
         <CreateCustomerModalContent>
-            <div className="modal-content">
+            <div className="modal-content-wrap">
                 <div className="create-customer-modal-fields">
                     <div>
                         <label>Email:</label>

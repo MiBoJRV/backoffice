@@ -7,12 +7,6 @@ import transactionsIcon from "./../../assets/images/transactions.svg"
 import ROUTES from "./../../router/routes.jsx"
 import {SidebarLeft} from "./Styles.jsx";
 import {Link} from "react-router-dom";
-import {useAuth} from "../../contexts/AuthContext.jsx";
-
-
-// const UserRoles = {
-//     customer: "CustomerLayout", admin: "Admin",
-// }
 
 const ADMIN_MENUS = [
     {
@@ -38,10 +32,7 @@ const CUSTOMER_MENUS = [
 
 export const Sidebar = ({setUserRole}) => {
     const userRole = localStorage.getItem('userRole')
-    // console.log('Sidebar userRole', userRole)
     const menus = userRole === "Customer" ? CUSTOMER_MENUS : ADMIN_MENUS ;
-    // const menus = userRole === "CustomerLayout" ? ADMIN_MENUS : CUSTOMER_MENUS ;
-
 
     return (
         <SidebarLeft>
@@ -52,7 +43,7 @@ export const Sidebar = ({setUserRole}) => {
                 <ul className="sidebar-list">
                     {menus.map((item) => (
                         <li key={item.name}>
-                            <Link to={item.path}>
+                            <Link to={item.path} style={{ fontWeight: location.pathname === item.path ? 'bold' : 'inherit' }}>
                                 <img src={item.icon} alt={item.name} />
                                 {item.name}
                             </Link>

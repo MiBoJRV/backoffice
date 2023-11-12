@@ -15,20 +15,29 @@ export const ModalOverlay = styled.div`
 
   .modal-content {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 30px 15px;
+    border-radius: 10px;
     position: relative;
     max-width: 960px;
     text-align: center;
+
+    .close-icon {
+      position: absolute;
+      top: -64px;
+      right: 0;
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
   }
 
-  .close-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-  }
+
 
   .save-button {
     margin-top: 20px;

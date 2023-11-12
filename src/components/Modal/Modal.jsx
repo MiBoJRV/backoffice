@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {ModalOverlay} from "./Styles.jsx";
+import close from './../../assets/images/close.svg'
 
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -26,7 +27,9 @@ const Modal = ({ isOpen, onClose, children }) => {
     return (
         <ModalOverlay className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <span className="close-icon" onClick={onClose}>×</span>
+                <span className="close-icon" onClick={onClose}>
+                    <img src={close} alt="close"/>
+                </span>
                 {children}
                 {/*<button className="save-button" onClick={onClose}>Save</button>*/}
             </div>

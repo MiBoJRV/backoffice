@@ -6,16 +6,33 @@ export const SidebarLeft = styled.div`
   width: 100%;
   background: #fff;
   margin-top: -100px;
+  position: relative;
+
+  @media only screen and (max-width: 991px) {
+    max-width: 150px;
+    margin-top: -54px;
+  }
 
   .header-sidebar {
     position: relative;
     z-index: 20;
   }
-  
+
   .logo {
     margin: 13px 26px 0;
+    @media only screen and (max-width: 991px) {
+      margin-top: 10px;
+    }
+
+    img {
+      @media only screen and (max-width: 991px) {
+        max-width: 91px;
+
+      }
+    }
   }
-  
+
+
   .sidebar-list {
     list-style: none;
     display: flex;
@@ -24,33 +41,39 @@ export const SidebarLeft = styled.div`
     margin: 0;
     background: #fff;
     padding: 30px 18px;
-    
+
     li {
       display: flex;
       align-items: center;
       gap: 15px;
-      
+
       a {
         color: #1A1A1A;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
       }
     }
   }
+
   .coin-price {
     background: #1A1A1A;
-    
-    @media only screen and (max-width: 768px) {
+
+
+    @media only screen and (max-width: 991px) {
       display: none;
     }
-    
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      
+
       li {
         color: #FFF;
         font-size: 10px;
@@ -64,18 +87,19 @@ export const SidebarLeft = styled.div`
         &:nth-child(odd) {
           background: #353535;
         }
-        
+
         &:nth-child(even) {
           background: #1A1A1A;
         }
-        
+
         &:nth-child(1) {
           background: #1A1A1A;
         }
+
         span {
           width: 50%;
           position: relative;
-          
+
           &:after {
             content: '';
             width: 50px;

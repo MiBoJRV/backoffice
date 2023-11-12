@@ -10,10 +10,12 @@ import useAdminCustomerUpdate from "../../hooks/useAdminCustomerUpdate.jsx";
 import edit from './../../assets/images/edit.svg';
 import search from './../../assets/images/search.svg';
 import dataAr from './../../assets/images/data_ar.svg';
+import angleRight from './../../assets/images/angle-right.svg';
+import angleLeft from './../../assets/images/angle-left.svg';
 import {CustomersAllContent} from "./Styles.jsx";
 
 
-const AdminCustomersAllTable = ({ accessToken }) => {
+const AdminCustomersAllTable = ({accessToken}) => {
     const {
         customers,
         pageSize,
@@ -27,7 +29,6 @@ const AdminCustomersAllTable = ({ accessToken }) => {
         selectedDate,
         handleDateChange,
         fetchCustomers,
-
     } = useFetchCustomersAll(accessToken);
 
     const startIndex = (currentPage - 1) * pageSize + 1;
@@ -89,7 +90,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
     };
 
     if (redirectToCustomer && selectedCustomerId) {
-        return <Navigate to={`/admin/customer?id=${selectedCustomerId}`} />;
+        return <Navigate to={`/admin/customer?id=${selectedCustomerId}`}/>;
     }
 
     return (
@@ -125,64 +126,72 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                     <button onClick={openEditModal}>Create</button>
                 </div>
             </div>
-            <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-            <table>
-                <thead>
-                <tr>
-                    <th> ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Case Number</th>
-                    <th>Recovered Amount</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {customers.map((customer) => (
-                    <tr key={customer.id}>
-                        <td>{customer.numericId}</td>
-                        <td>{customer.firstName} {customer.lastName}</td>
-                        <td>{customer.email}</td>
-                        <td>{customer.phone}</td>
-                        <td>{customer.caseNumber}</td>
-                        <td>{customer.totalWorth}</td>
-                        <td>{customer.caseStarted}</td>
-                        <td>
-                            <img
-                                className="edit"
-                                src={edit}
-                                alt="icon"
-                                 onClick={() => {
-                                     handleEditPageCustomer(customer);
-                                }}
-                            />
-                        </td>
+            <div className="table-size">
+                Show
+                <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                entries
+            </div>
+            <div className="table-info">
+                <table>
+                    <thead>
+                    <tr>
+                        <th> ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Case Number</th>
+                        <th>Recovered Amount</th>
+                        <th>Date</th>
+                        <th></th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
-            <div>
+                    </thead>
+                    <tbody>
+                    {customers.map((customer) => (
+                        <tr key={customer.id}>
+                            <td>{customer.numericId}</td>
+                            <td>{customer.firstName} {customer.lastName}</td>
+                            <td>{customer.email}</td>
+                            <td>{customer.phone}</td>
+                            <td>{customer.caseNumber}</td>
+                            <td>{customer.totalWorth}</td>
+                            <td>{customer.caseStarted}</td>
+                            <td>
+                                <img
+                                    className="edit"
+                                    src={edit}
+                                    alt="icon"
+                                    onClick={() => {
+                                        handleEditPageCustomer(customer);
+                                    }}
+                                />
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="table-entries">
                 <p>
                     Showing {startIndex} to {endIndex} of {totalEntries} entries
                 </p>
-                {totalPages > 1 && (
-                    <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                        {'<'}
-                    </button>
-                )}
-                <span>{currentPage}</span>
-                {totalPages > 1 && (
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                        {'>'}
-                    </button>
-                )}
+                <div className="table-pages">
+                    {totalPages > 1 && (
+                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                            <img className="page-icon" src={angleLeft} alt="icon"/>
+                        </button>
+                    )}
+                    <span className="page">{currentPage}</span>
+                    {totalPages > 1 && (
+                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                            <img className="page-icon" src={angleRight} alt="icon"/>
+                        </button>
+                    )}
+                </div>
             </div>
             {isEModalOpen && selectedCustomer && (
                 <Modal isOpen={isEModalOpen} onClose={() => setIsEModalOpen(false)}>
@@ -191,7 +200,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
             )}
             {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <CreateCustomerModal isOpen={isModalOpen} onClose={closeEditModal} onCreate={handleCreateCustomer} />
+                    <CreateCustomerModal isOpen={isModalOpen} onClose={closeEditModal} onCreate={handleCreateCustomer}/>
                 </Modal>
             )}
         </CustomersAllContent>

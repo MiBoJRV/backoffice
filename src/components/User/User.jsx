@@ -34,7 +34,7 @@ export const User = ({...customerData}) => {
     const userAvatar = customerData?.firstName?.charAt(0).toUpperCase() || "";
     return (
         <UserContent className="user">
-            <h5>{customerData?.firstName} {customerData?.lastName}</h5>
+            <h5>{customerData?.firstName} {customerData?.lastName}({customerData?.numericId})</h5>
             <span className="user_avatar">
                {userAvatar}
             </span>
