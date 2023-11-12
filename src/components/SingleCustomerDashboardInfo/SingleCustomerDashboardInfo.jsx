@@ -10,6 +10,10 @@ import {Control} from "../Control/Control.jsx";
 export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
     const [formData, setFormData] = useState({...customerData});
+    const [showTextDashboard, setShowTextDashboard] = useState(true);
+    const [showTextAsset, setShowTextAsset] = useState(true);
+    const [showTextTransactions, setShowTextTransactions] = useState(true);
+    const [showTextCustomers, setShowTextCustomers] = useState(true);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -17,7 +21,10 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
             ...prevData,
             [name]: value,
         }));
-
+        setShowTextDashboard(true);
+        // setShowTextAsset(true);
+        setShowTextTransactions(true);
+        setShowTextCustomers(true);
     };
 
 
@@ -35,7 +42,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             if (response.ok) {
                 console.log('Data saved successfully!');
-
+                setShowTextDashboard(false);
                 const updatedChartData = {
                     mainGraph1: formData.mainGraph1,
                     mainGraph2: formData.mainGraph2,
@@ -109,6 +116,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             if (response.ok) {
                 console.log('Data saved successfully!');
+                setShowTextTransactions(false);
             } else {
                 console.error('Error saving customer data:', response.statusText);
             }
@@ -131,6 +139,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             if (response.ok) {
                 console.log('Data saved successfully!');
+                setShowTextCustomers(false);
             } else {
                 console.error('Error saving customer data:', response.statusText);
             }
@@ -171,7 +180,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
     return (
         <DashboardContent>
-            <Control title="Dashboard" buttonText="Save" onClick={handleSaveDashboard}/>
+            <Control title="Dashboard" buttonText="Save" onClick={handleSaveDashboard} showText={showTextDashboard}/>
             <div className="dashboard-info-content">
                 <div className="dashboard-info">
                     <div className="dashboard-info-group">
@@ -298,7 +307,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                 </div>
             </div>
             <div className="assets-info-content">
-                <Control title="Asset" buttonText="Create" onClick={openCreateAssetModal}/>
+                <Control title="Asset" buttonText="Create" onClick={openCreateAssetModal} showText={showTextAsset}/>
                 <div className="asset-info-group">
                     <AdminAssetTable
                         isAssetCreateModalOpen={isAssetCreateModalOpen}
@@ -309,7 +318,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             </div>
             <div className="transactions-info-content">
-                <Control title="Transactions" buttonText="Save" onClick={handleSaveTransactions}/>
+                <Control title="Transactions" buttonText="Save" onClick={handleSaveTransactions} showText={showTextTransactions}/>
                 <div className="transactions-info-group">
                     <div>
                         <label htmlFor="totalLoss">Total Loss:</label>
@@ -344,7 +353,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                 </div>
             </div>
             <div className="customers-info-content">
-                <Control title="Customers" buttonText="Save" onClick={handleSaveCustomers}/>
+                <Control title="Customers" buttonText="Save" onClick={handleSaveCustomers} showText={showTextCustomers}/>
                 <div className="customers-info-group">
                     <div>
                         <label htmlFor="totalClients">Total Clients:</label>
@@ -370,7 +379,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
             </div>
             {/*<div className="customers-table-info-content">*/}
-            {/*    <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal}/>*/}
+            {/*    <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal} showText={showText}/>*/}
             {/*    <div className="transactions-info-group">*/}
             {/*        <AdminTransactionsTable*/}
             {/*            isTransactionCreateModalOpen={isTransactionCreateModalOpen}*/}

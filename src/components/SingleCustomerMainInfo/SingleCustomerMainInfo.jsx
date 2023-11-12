@@ -4,6 +4,7 @@ import {Control} from "../Control/Control.jsx";
 
 export const SingleCustomerMainInfo = ({...customerData}) => {
     const [formData, setFormData] = useState({...customerData});
+    const [showText, setShowText] = useState(true);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -27,6 +28,7 @@ export const SingleCustomerMainInfo = ({...customerData}) => {
 
             if (response.ok) {
                 console.log('Data saved successfully!');
+                setShowText(false);
             } else {
                 console.error('Error saving customer data:', response.statusText);
             }
@@ -37,7 +39,7 @@ export const SingleCustomerMainInfo = ({...customerData}) => {
 
     return (
         <MainContent>
-            <Control title="Main" buttonText="Save" onClick={handleSaveClick}/>
+            <Control title="Main" buttonText="Save" onClick={handleSaveClick} showText={showText}/>
             <div className="main-info">
                 <div className="main-info-group">
                     <div>
