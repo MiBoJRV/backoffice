@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
-import {CustomersAllContent} from "./Styles.jsx";
+import {Navigate} from "react-router-dom";
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import edit from './../../assets/images/edit.svg';
 import useFetchCustomersAll from "../../hooks/useFetchCustomersAll.jsx";
 import CreateCustomerModal from "../CreateCustomerModal/CreateCustomerModal.jsx";
 import Modal from "../Modal/Modal.jsx";
 import EditCustomerModalContent from "../EditCustomerModalСontent/EditCustomerModalContent.jsx";
 import useAdminCustomerUpdate from "../../hooks/useAdminCustomerUpdate.jsx";
-import {Navigate} from "react-router-dom";
+import edit from './../../assets/images/edit.svg';
+import search from './../../assets/images/search.svg';
+import dataAr from './../../assets/images/data_ar.svg';
+import {CustomersAllContent} from "./Styles.jsx";
 
 
 const AdminCustomersAllTable = ({ accessToken }) => {
@@ -87,7 +89,6 @@ const AdminCustomersAllTable = ({ accessToken }) => {
     };
 
     if (redirectToCustomer && selectedCustomerId) {
-        // return <Navigate to={`/admin/customer?id=${selectedCustomerId}`} />;
         return <Navigate to={`/admin/customer?id=${selectedCustomerId}`} />;
     }
 
@@ -95,9 +96,14 @@ const AdminCustomersAllTable = ({ accessToken }) => {
         <CustomersAllContent>
             <div className="table-control">
                 <div className="search">
+                    <img
+                        className="search-icon"
+                        src={search}
+                        alt="icon"
+                    />
                     <input
                         type="text"
-                        placeholder="Пошук за ім'ям, електронною поштою, телефоном тощо"
+                        placeholder="Search..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -108,13 +114,17 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                         onChange={handleDateChange}
                         dateFormat="dd.MM.yyyy"
                     />
+                    <img
+                        className="data-icon"
+                        src={dataAr}
+                        alt="icon"
+                    />
+
                 </div>
                 <div className="create-new">
                     <button onClick={openEditModal}>Create</button>
                 </div>
-
             </div>
-
             <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
                 <option value="10">10</option>
                 <option value="25">25</option>
@@ -149,13 +159,9 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                                 className="edit"
                                 src={edit}
                                 alt="icon"
-                                // onClick={() => {
-                                //     handleEditCustomer(customer);
-                                // }}
                                  onClick={() => {
                                      handleEditPageCustomer(customer);
                                 }}
-
                             />
                         </td>
                     </tr>

@@ -22,7 +22,6 @@ const AdminDashboard = () => {
             <div className="dashboard_content">
                 <AdminDashboardSection/>
             </div>
-            {/*{error && <div className="error-message">{error}</div>}*/}
         </AdminDashboardContent>
 
     );

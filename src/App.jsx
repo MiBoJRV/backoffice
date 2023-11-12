@@ -14,7 +14,6 @@ import AdminCustomerPage from "./pages/Dashboard/AdminCustomerPage/AdminCustomer
 
 const App = () => {
     const [userRole, setUserRole] = useState(null);
-    console.log(userRole)
     return (
         <Router>
             <Routes>
