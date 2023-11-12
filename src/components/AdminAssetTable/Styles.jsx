@@ -66,7 +66,8 @@ export const AdminAssetTableContent = styled ('div')`
     }
 
 
-    .edit {
+    .edit,
+    .bin {
       cursor: pointer;
     }
 

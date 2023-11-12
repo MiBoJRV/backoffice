@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {ModalContent} from "./Styles.jsx";
-// import useSingleCustomer from "../../hooks/useSingleCustomer.jsx";
 
-
-// import usdt from '../../assets/images/cryptoIcon/usdt.svg';
-// import bitcoin from '../../assets/images/cryptoIcon/bitcoin.svg';
-// import ethereum from '../../assets/images/cryptoIcon/ethereum.svg';
-// import litecoin from '../../assets/images/cryptoIcon/litecoin.svg';
+import bitcoin from './../../assets/images/cryptoIcon/bitcoin.svg'
+import usdt from './../../assets/images/cryptoIcon/usdt.svg'
+import ethereum from './../../assets/images/cryptoIcon/ethereum.svg'
+import litecoin from './../../assets/images/cryptoIcon/litecoin.svg'
+import arr from './../../assets/images/data_ar.svg'
 
 const useSingleCustomer = (id) => {
     const [customerData, setCustomerData] = useState(null);
@@ -100,26 +99,52 @@ const CreateAdminAssetModalContent = ({isOpen, onClose, onCreate}) => {
             <div className="modal-content">
                 <div className="create-assets-modal-fields">
                     <div>
-                        <label>Name:</label>
+                        <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Amount:</label>
+                        <label htmlFor="amount">Amount</label>
                         <input type="text" name="amount" value={formData.amount} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Price:</label>
+                        <label htmlFor="price">Price</label>
                         <input type="text" name="price" value={formData.price} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Logo:</label>
-                        {/*<input type="text" name="logoName" value={formData.logoName} onChange={handleInputChange}/>*/}
-                        <select name="logoName" value={formData.logoName} onChange={handleInputChange}>
-                            <option value="bitcoin.svg"> Bitcoin</option>
-                            <option value="usdt.svg">Tether</option>
-                            <option value="ethereum.svg">Ethereum</option>
-                            <option value="litecoin.svg">Litecoin</option>
-                        </select>
+                        <label htmlFor="logoName">Logo</label>
+                        <div className="custom-select">
+                            <div className="selected-option" onClick={() => document.getElementById("options").classList.toggle("show")}>
+                                <img src={formData.logoName === 'bitcoin.svg' ? bitcoin :
+                                    formData.logoName === 'usdt.svg' ? usdt :
+                                        formData.logoName === 'ethereum.svg' ? ethereum :
+                                            formData.logoName === 'litecoin.svg' ? litecoin : ''}
+                                     alt={formData.logoName}
+                                     width="25"
+                                     height="25"
+                                />
+                                <img className="arr" src={arr} alt="arr" width="15" height="10"/>
+                            </div>
+                            <div id="options" className="options">
+                                <div onClick={() => { handleInputChange({ target: { name: "logoName", value: "bitcoin.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={bitcoin} alt="Bitcoin" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "logoName", value: "usdt.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={usdt} alt="Tether" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "logoName", value: "ethereum.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={ethereum} alt="Ethereum" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "logoName", value: "litecoin.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={litecoin} alt="Litecoin" width="25" height="25" />
+                                </div>
+                            </div>
+                        </div>
+                        {/*<select name="logoName" value={formData.logoName} onChange={handleInputChange}>*/}
+                        {/*    <option value="bitcoin.svg"> Bitcoin</option>*/}
+                        {/*    <option value="usdt.svg">Tether</option>*/}
+                        {/*    <option value="ethereum.svg">Ethereum</option>*/}
+                        {/*    <option value="litecoin.svg">Litecoin</option>*/}
+                        {/*</select>*/}
                     </div>
                 </div>
                 <button onClick={handleSave}>Save</button>

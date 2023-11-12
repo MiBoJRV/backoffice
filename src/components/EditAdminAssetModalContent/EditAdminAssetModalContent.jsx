@@ -55,7 +55,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
     return (
         <ModalContent>
             <div className="modal-content">
-                <div className="create-assets-modal-fields">
+                <div className="edit-assets-modal-fields">
                     <div>
                         <label htmlFor="name">Name</label>
                         <input
@@ -88,7 +88,6 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
                     </div>
                     <div>
                         <label htmlFor="logoName">Logo</label>
-                        {/* Custom select with images */}
                         <div className="custom-select">
                             <div className="selected-option" onClick={() => document.getElementById("options").classList.toggle("show")}>
                                 <img src={formData.logoName === 'bitcoin.svg' ? bitcoin :
