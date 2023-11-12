@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const ControlContent = styled ('div')`
   margin-bottom: 30px;
   gap: 10px;
-  
+
+  @media only screen and (max-width: 480px) {
+    flex-direction: column;
+  }
+
   h2 {
     color: #1C0371;
     font-size: 36px;
@@ -35,6 +39,10 @@ export const ControlContent = styled ('div')`
     &:active {
       background: #1D1060;
     }
-  }
     
+    @media only screen and (max-width: 480px) {
+      margin: 0 0 0 auto;
+    }
+  }
+
 `;
