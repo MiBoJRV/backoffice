@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {MainContent} from './Styles.jsx';
+import {Control} from "../Control/Control.jsx";
 
 export const SingleCustomerMainInfo = ({...customerData}) => {
     const [formData, setFormData] = useState({...customerData});
@@ -36,63 +37,60 @@ export const SingleCustomerMainInfo = ({...customerData}) => {
 
     return (
         <MainContent>
-            <div className="control">
-                <h2>Main</h2>
-                <button onClick={handleSaveClick}>Save</button>
-            </div>
+            <Control title="Main" buttonText="Save" onClick={handleSaveClick}/>
             <div className="main-info">
                 <div className="main-info-group">
                     <div>
-                        Email:
+                        <label htmlFor="email">Email:</label>
                         <input type="text" name="email" value={formData.email} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Password:
+                        <label htmlFor="password"> Password:</label>
                         <input type="text" name="password" value={formData.password} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Phone Number:
+                        <label htmlFor="phone"> Phone Number:</label>
                         <input type="text" name="phone" value={formData.phone} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        ID: {formData.numericId}
+                        <label htmlFor="numericId">ID:</label>
                         <input type="text" name="numericId" value={formData.numericId} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        First Name:
+                        <label htmlFor="firstName">First Name:</label>
                         <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Last Name:
+                        <label htmlFor="lastName">Last Name:</label>
                         <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}/>
                     </div>
                 </div>
                 <div className="main-info-group">
                     <div>
-                        Case number:
+                        <label htmlFor="caseNumber"> Case number:</label>
                         <input type="text" name="caseNumber" value={formData.caseNumber} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Case Started:
+                        <label htmlFor="caseStarted">Case Started:</label>
                         <input type="text" name="caseStarted" value={formData.caseStarted}
                                onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Description:
+                        <label htmlFor="description">Description:</label>
                         <input type="text" name="description" value={formData.description}
                                onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Currency symbol:
+                        <label htmlFor="currencySymbol">Currency symbol:</label>
                         <input type="text" name="currencySymbol" value={formData.currencySymbol}
                                onChange={handleInputChange}/>
                     </div>
                     <div>
-                        KYC status:
+                        <label htmlFor="kycStatus"> KYC status:</label>
                         <input type="text" name="kycStatus" value={formData.kycStatus} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Customer status:
+                        <label htmlFor="customerStatus">Customer status:</label>
                         <input type="text" name="customerStatus" value={formData.customerStatus}
                                onChange={handleInputChange}/>
                     </div>

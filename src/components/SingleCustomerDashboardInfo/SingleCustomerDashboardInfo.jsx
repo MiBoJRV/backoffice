@@ -5,11 +5,12 @@ import {ChartsLine13} from "../ChartsLine13/ChartsLine13.jsx";
 import {AdminAssetTable} from "../AdminAssetTable/AdminAssetTable.jsx";
 import TransactionsTable from "../TransactionsTable/TransactionsTable.jsx";
 import AdminTransactionsTable from "../AdminTransactionsTable/AdminTransactionsTable.jsx";
+import {Control} from "../Control/Control.jsx";
 
 export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
     const [formData, setFormData] = useState({...customerData});
-    // console.log('Customer id', id)
+
     const handleInputChange = (e) => {
         const {name, value} = e.target;
         setFormData((prevData) => ({
@@ -170,12 +171,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
 
     return (
         <DashboardContent>
-            <div className="control">
-                <h2>Dashboard</h2>
-                <button onClick={handleSaveDashboard}>
-                    Save
-                </button>
-            </div>
+            <Control title="Dashboard" buttonText="Save" onClick={handleSaveDashboard}/>
             <div className="dashboard-info-content">
                 <div className="dashboard-info">
                     <div className="dashboard-info-group">
