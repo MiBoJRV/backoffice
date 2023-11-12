@@ -312,36 +312,32 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                 <Control title="Transactions" buttonText="Save" onClick={handleSaveTransactions}/>
                 <div className="transactions-info-group">
                     <div>
-                        Total Loss:
+                        <label htmlFor="totalLoss">Total Loss:</label>
                         <input type="text" name="totalLoss" value={formData.totalLoss}
                                onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Total Recovered:
+                        <label htmlFor="totalRecovered">Total Recovered:</label>
                         <input type="text" name="totalRecovered" value={formData.totalRecovered}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Payment Method:
+                        <label htmlFor="paymentMethod">Payment Method:</label>
                         <input type="text" name="paymentMethod" value={formData.paymentMethod}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Wallet:
+                        <label htmlFor="wallet"> Wallet:</label>
                         <input type="text" name="wallet" value={formData.wallet}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Smart Contract ID:
+                        <label htmlFor="smartContractId">Smart Contract ID:</label>
                         <input type="text" name="smartContractId" value={formData.smartContractId}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Scammed By:
+                        <label htmlFor="scammedBy">Scammed By:</label>
                         <input type="text" name="scammedBy" value={formData.scammedBy}
                                onChange={handleInputChange}/>
                     </div>
@@ -351,40 +347,38 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                 <Control title="Customers" buttonText="Save" onClick={handleSaveCustomers}/>
                 <div className="customers-info-group">
                     <div>
-                        Total Clients:
+                        <label htmlFor="totalClients">Total Clients:</label>
                         <input type="text" name="totalClients" value={formData.totalClients}
                                onChange={handleInputChange}/>
                     </div>
                     <div>
-                        Successful Cases:
+                        <label htmlFor="successfulCases">Successful Cases:</label>
                         <input type="text" name="successfulCases" value={formData.successfulCases}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Amount recovered:
+                        <label htmlFor="amountRecovered">Amount recovered:</label>
                         <input type="text" name="amountRecovered" value={formData.amountRecovered}
                                onChange={handleInputChange}/>
                     </div>
-
                     <div>
-                        Personal Manager:
+                        <label htmlFor="personalManager">Personal Manager:</label>
                         <input type="text" name="personalManager" value={formData.personalManager}
                                onChange={handleInputChange}/>
                     </div>
                 </div>
 
             </div>
-            <div className="customers-table-info-content">
-                <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal}/>
-                <div className="transactions-info-group">
-                <AdminTransactionsTable
-                    isTransactionCreateModalOpen={isTransactionCreateModalOpen}
-                    setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}
-                    {...customerData}
-                />
-                </div>
-            </div>
+            {/*<div className="customers-table-info-content">*/}
+            {/*    <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal}/>*/}
+            {/*    <div className="transactions-info-group">*/}
+            {/*        <AdminTransactionsTable*/}
+            {/*            isTransactionCreateModalOpen={isTransactionCreateModalOpen}*/}
+            {/*            setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}*/}
+            {/*            {...customerData}*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
         </DashboardContent>
     );

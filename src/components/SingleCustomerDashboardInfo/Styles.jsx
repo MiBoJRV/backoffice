@@ -5,6 +5,17 @@ export const DashboardContent = styled ('div')`
   background: #FFF;
   box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  
+  @media only screen and (max-width: 991px) {
+    padding: 30px 15px;
+  }
+  
+  & > .control {
+    margin-bottom: 0;
+  }
 
   .control {
     display: flex;
@@ -228,71 +239,6 @@ export const DashboardContent = styled ('div')`
 
   }
 
-
-  .transactions-info-content {
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
-    padding: 30px 15px;
-    gap: 40px;
-    display: flex;
-    flex-direction: column;
-
-    .transactions-info-group {
-      border-radius: 10px;
-      background: #FFF;
-      box-shadow: 0px 10px 60px 0px rgba(10, 45, 97, 0.10);
-      padding: 30px 15px;
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 20px;
-      row-gap: 30px;
-
-      & > div {
-        border-radius: 10px;
-        border: 1px solid rgba(113, 113, 113, 0.20);
-        background: #FFF;
-        box-shadow: 0 0 4px 0 rgba(41, 11, 103, 0.20);
-        padding: 10px;
-        display: flex;
-        gap: 5px;
-        width: calc(50% - 10px);
-      }
-    }
-  }
-
-  .customers-info-content {
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 10px 60px 0px rgba(10, 45, 97, 0.10);
-    padding: 30px 15px;
-    gap: 40px;
-    display: flex;
-    flex-direction: column;
-
-    .customers-info-group {
-      border-radius: 10px;
-      background: #FFF;
-      box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
-      padding: 30px 15px;
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 20px;
-      row-gap: 30px;
-
-      & > div {
-        border-radius: 10px;
-        border: 1px solid rgba(113, 113, 113, 0.20);
-        background: #FFF;
-        box-shadow: 0 0 4px 0 rgba(41, 11, 103, 0.20);
-        padding: 10px;
-        display: flex;
-        gap: 5px;
-        width: calc(50% - 10px);
-      }
-    }
-  }
-
   .assets-info-content {
     border-radius: 10px;
     background: #FFF;
@@ -325,6 +271,100 @@ export const DashboardContent = styled ('div')`
     }
   }
 
+  .transactions-info-content {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+
+    .transactions-info-group {
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
+      padding: 30px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 30px;
+
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      & > div {
+        border-radius: 10px;
+        border: 1px solid rgba(113, 113, 113, 0.20);
+        background: #FFF;
+        box-shadow: 0 0 4px 0 rgba(41, 11, 103, 0.20);
+        color: #1A1A1A;
+        width: calc(50% - 10px);
+        padding: 10px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        height: 40px;
+
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+
+        label {
+          white-space: nowrap;
+        }
+
+      }
+    }
+  }
+
+  .customers-info-content {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+
+    .customers-info-group {
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
+      padding: 30px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 30px;
+
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      & > div {
+        border-radius: 10px;
+        border: 1px solid rgba(113, 113, 113, 0.20);
+        background: #FFF;
+        box-shadow: 0 0 4px 0 rgba(41, 11, 103, 0.20);
+        color: #1A1A1A;
+        width: calc(50% - 10px);
+        padding: 10px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        height: 40px;
+
+        @media only screen and (max-width: 768px) {
+          width: 100%;
+        }
+
+        label {
+          white-space: nowrap;
+        }
+
+      }
+    }
+  }
+
   input {
     border: none;
     outline: none;
@@ -335,5 +375,5 @@ export const DashboardContent = styled ('div')`
     line-height: normal;
     width: 100%;
   }
-  
+
 `;

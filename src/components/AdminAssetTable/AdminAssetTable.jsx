@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from "react";
 import { AdminAssetTableContent } from "./Styles.jsx";
 import edit from "../../assets/images/edit.svg";
 import bin from "../../assets/images/bin.svg";
-import React, { useEffect, useState } from "react";
 import Modal from "../Modal/Modal.jsx";
 import EditAdminAssetModalContent from "../EditAdminAssetModalContent/EditAdminAssetModalContent.jsx";
 import CreateAdminAssetModalContent from "../CreateAdminAssetModalContent/CreateAdminAssetModalContent.jsx";
@@ -106,47 +106,49 @@ export const AdminAssetTable = ({ isAssetCreateModalOpen, setIsAssetCreateModalO
 
     return (
         <AdminAssetTableContent>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Logo</th>
-                    <th>Action</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {assets.map((asset) => (
-                    <tr key={asset.id}>
-                        <td>{asset.name}</td>
-                        <td>{asset.amount}</td>
-                        <td>{asset.price}</td>
-                        <td>
-                            <img className="coin-icon" src={`${cryptoIconPath}${asset.logoName}`} alt="" />
-                        </td>
-                        <td>
-                            <img
-                                className="edit"
-                                src={edit}
-                                alt="icon"
-                                onClick={() => {
-                                    handleEditAsset(asset.id);
-                                }}
-                            />
-                        </td>
-                        <td>
-                            <img className="bin"
-                                 src={bin}
-                                 alt="icon"
-                                 onClick={() => handleDeleteAsset(asset.id)}
-                            />
-                        </td>
+            <div className="table-info">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Logo</th>
+                        <th></th>
+                        <th></th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {assets.map((asset) => (
+                        <tr key={asset.id}>
+                            <td>{asset.name}</td>
+                            <td>{asset.amount}</td>
+                            <td>{asset.price}</td>
+                            <td>
+                                <img className="coin-icon" src={`${cryptoIconPath}${asset.logoName}`} alt="" />
+                            </td>
+                            <td>
+                                <img
+                                    className="edit"
+                                    src={edit}
+                                    alt="icon"
+                                    onClick={() => {
+                                        handleEditAsset(asset.id);
+                                    }}
+                                />
+                            </td>
+                            <td>
+                                <img className="bin"
+                                     src={bin}
+                                     alt="icon"
+                                     onClick={() => handleDeleteAsset(asset.id)}
+                                />
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
             <div className="assets_charts-doughnut">
                 <ChartsDoughnut{...customerData} />
             </div>

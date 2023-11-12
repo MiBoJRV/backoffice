@@ -1,107 +1,18 @@
-//
-// import React, {useState} from 'react';
-// import {ModalContent} from "./Styles.jsx";
-//
-// const EditAdminAssetModalContent = ({isOpen, onClose, onCreate, onSave}) => {
-//
-//     const [formData, setFormData] = useState({
-//         id: '',
-//         name: '',
-//         amount: '',
-//         price: '',
-//         logoName: 'bitcoin.svg',
-//     });
-//
-//     const handleInputChange = (e) => {
-//         const {name, value} = e.target;
-//         setFormData({...formData, [name]: value});
-//     };
-//
-//     const handleSave = async () => {
-//         try {
-//             const accessToken = localStorage.getItem('accessToken');
-//             const response = await fetch('https://highdardata.xyz/office/v1/assets/update', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     Authorization: `Bearer ${accessToken}`,
-//                 },
-//                 body: JSON.stringify(formData),
-//             });
-//
-//             if (response.ok) {
-//                 onCreate(formData);
-//                 console.log('Asset created successfully!-00');
-//
-//                 onSave();
-//                 console.log('after create onSave fetchData')
-//                 onClose();
-//             } else {
-//                 console.error('Помилка при відправці даних на сервер');
-//             }
-//         } catch (error) {
-//             console.error('Помилка:', error);
-//         }
-//     };
-//
-//     if (!isOpen) {
-//         return null;
-//     }
-//
-//     return (
-//         <ModalContent>
-//             <div className="modal-content">
-//                 <div className="create-assets-modal-fields">
-//                     <div>
-//                         <label>Name:</label>
-//                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}/>
-//                     </div>
-//                     <div>
-//                         <label>Amount:</label>
-//                         <input type="text" name="amount" value={formData.amount} onChange={handleInputChange}/>
-//                     </div>
-//                     <div>
-//                         <label>Price:</label>
-//                         <input type="text" name="price" value={formData.price} onChange={handleInputChange}/>
-//                     </div>
-//                     <div>
-//                         <label>Logo:</label>
-//                         {/*<input type="text" name="logoName" value={formData.logoName} onChange={handleInputChange}/>*/}
-//                         <select name="logoName" value={formData.logoName} onChange={handleInputChange}>
-//                             <option value="bitcoin.svg"> Bitcoin</option>
-//                             <option value="usdt.svg">Tether</option>
-//                             <option value="ethereum.svg">Ethereum</option>
-//                             <option value="litecoin.svg">Litecoin</option>
-//                         </select>
-//                     </div>
-//                 </div>
-//                 <button onClick={handleSave}>Save</button>
-//             </div>
-//
-//
-//         </ModalContent>
-//     );
-// };
-//
-// export default EditAdminAssetModalContent;
-//
-//
-
-
-// EditAdminAssetModalContent.jsx
-
 import React, { useState } from "react";
 import { ModalContent } from "./Styles.jsx";
+import bitcoin from './../../assets/images/cryptoIcon/bitcoin.svg'
+import usdt from './../../assets/images/cryptoIcon/usdt.svg'
+import ethereum from './../../assets/images/cryptoIcon/ethereum.svg'
+import litecoin from './../../assets/images/cryptoIcon/litecoin.svg'
+import arr from './../../assets/images/data_ar.svg'
 
 const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }) => {
     const [formData, setFormData] = useState({
-        // Initialize form data with existing asset data
         id: editAssetData?.id,
         name: editAssetData?.name || "",
         amount: editAssetData?.amount || "",
         price: editAssetData?.price || "",
         logoName: editAssetData?.logoName || "",
-        // Add other form fields as needed
     });
 
     const handleChange = (e) => {
@@ -126,9 +37,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
 
             if (response.ok) {
                 console.log("Asset successfully updated");
-                // Call onSave function if needed
                 onSave();
-                // Close the modal
                 onClose();
             } else {
                 console.error("Error updating asset:", response.statusText);
@@ -139,10 +48,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
     };
 
     const handleCreate = () => {
-        // Perform create operation with formData
-        // Call onCreate function if needed
         onCreate(formData);
-        // Close the modal
         onClose();
     };
 
@@ -151,7 +57,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
             <div className="modal-content">
                 <div className="create-assets-modal-fields">
                     <div>
-                        <label>Name:</label>
+                        <label htmlFor="name">Name</label>
                         <input
                             type="text"
                             id="name"
@@ -161,7 +67,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
                         />
                     </div>
                     <div>
-                        <label>Amount:</label>
+                        <label htmlFor="amount">Amount</label>
                         <input
                             type="text"
                             id="amount"
@@ -171,7 +77,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
                         />
                     </div>
                     <div>
-                        <label>Price:</label>
+                        <label htmlFor="price">Price</label>
                         <input
                             type="text"
                             id="price"
@@ -181,13 +87,35 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
                         />
                     </div>
                     <div>
-                        <label>Logo:</label>
-                        <select name="logoName" id="logoName" value={formData.logoName} onChange={handleChange}>
-                            <option value="bitcoin.svg"> Bitcoin</option>
-                            <option value="usdt.svg">Tether</option>
-                            <option value="ethereum.svg">Ethereum</option>
-                            <option value="litecoin.svg">Litecoin</option>
-                        </select>
+                        <label htmlFor="logoName">Logo</label>
+                        {/* Custom select with images */}
+                        <div className="custom-select">
+                            <div className="selected-option" onClick={() => document.getElementById("options").classList.toggle("show")}>
+                                <img src={formData.logoName === 'bitcoin.svg' ? bitcoin :
+                                    formData.logoName === 'usdt.svg' ? usdt :
+                                        formData.logoName === 'ethereum.svg' ? ethereum :
+                                            formData.logoName === 'litecoin.svg' ? litecoin : ''}
+                                     alt={formData.logoName}
+                                     width="25"
+                                     height="25"
+                                />
+                                <img className="arr" src={arr} alt="arr" width="15" height="10"/>
+                            </div>
+                            <div id="options" className="options">
+                                <div onClick={() => { handleChange({ target: { name: "logoName", value: "bitcoin.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={bitcoin} alt="Bitcoin" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "logoName", value: "usdt.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={usdt} alt="Tether" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "logoName", value: "ethereum.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={ethereum} alt="Ethereum" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "logoName", value: "litecoin.svg" } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={litecoin} alt="Litecoin" width="25" height="25" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <button onClick={handleSave}>Save</button>
@@ -197,4 +125,3 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
 };
 
 export default EditAdminAssetModalContent;
-
