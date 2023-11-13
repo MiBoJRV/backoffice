@@ -103,36 +103,36 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
             <div className="modal-content">
                 <div className="create-transactions-modal-fields">
                     <div>
-                        <label>Transaction ID:</label>
+                        <label htmlFor="numericId">Transaction ID</label>
                         <input type="text" name="numericId" value={formData.numericId} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Name:</label>
+                        <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Status:</label>
+                        <label htmlFor="name">Status</label>
                         <select name="status" id="status" value={formData.status} onChange={handleInputChange}>
+                            <option value="4">New</option>
                             <option value="1"> InProgress</option>
                             <option value="2">Success</option>
                             <option value="3">Fail</option>
-                            <option value="4">New</option>
                         </select>
                     </div>
                     <div>
-                        <label>Description:</label>
+                        <label htmlFor="description">Description</label>
                         <input type="text" name="description" value={formData.description} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Country:</label>
+                        <label htmlFor="country">Country</label>
                         <input type="text" name="country" value={formData.country} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Recovered Amount:</label>
+                        <label htmlFor="recoveredAmount">Recovered Amount</label>
                         <input type="text" name="recoveredAmount" value={formData.recoveredAmount} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label>Date:</label>
+                        <label htmlFor="date">Date</label>
                         <input type="text" name="date" value={formData.date} onChange={handleInputChange}/>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./../../assets/images/logo.svg"
 import accountsIcon from "./../../assets/images/accounts.svg"
 import customersIcon from "./../../assets/images/customers.svg"
 import dashboardIcon from "./../../assets/images/dashboard.svg"
 import transactionsIcon from "./../../assets/images/transactions.svg"
 import ROUTES from "./../../router/routes.jsx"
-import {SidebarLeft} from "./Styles.jsx";
-import {Link} from "react-router-dom";
+import { SidebarLeft } from "./Styles.jsx";
+import { Link } from "react-router-dom";
 
 const ADMIN_MENUS = [
     {
@@ -29,16 +29,51 @@ const CUSTOMER_MENUS = [
     },
 ];
 
+export const Sidebar = ({ setUserRole }) => {
+    const [cryptoPrices, setCryptoPrices] = useState({
+        bitcoin: 0,
+        ethereum: 0,
+        litecoin: 0,
+        tether: 0,
+    });
 
-export const Sidebar = ({setUserRole}) => {
+    useEffect(() => {
+        const fetchCryptoPrices = async () => {
+            try {
+                const responseBitcoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur");
+                const dataBitcoin = await responseBitcoin.json();
+
+                const responseEthereum = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur");
+                const dataEthereum = await responseEthereum.json();
+
+                const responseLitecoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=eur");
+                const dataLitecoin = await responseLitecoin.json();
+
+                const responseTether = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=eur");
+                const dataTether = await responseTether.json();
+
+                setCryptoPrices({
+                    bitcoin: dataBitcoin.bitcoin.eur,
+                    ethereum: dataEthereum.ethereum.eur,
+                    litecoin: dataLitecoin.litecoin.eur,
+                    tether: dataTether.tether.eur,
+                });
+            } catch (error) {
+                console.error("Error fetching crypto prices", error);
+            }
+        };
+
+        fetchCryptoPrices();
+    }, []);
+
     const userRole = localStorage.getItem('userRole')
-    const menus = userRole === "Customer" ? CUSTOMER_MENUS : ADMIN_MENUS ;
+    const menus = userRole === "Customer" ? CUSTOMER_MENUS : ADMIN_MENUS;
 
     return (
         <SidebarLeft>
             <div className="header-sidebar">
                 <div className="logo">
-                    <img src={logo} alt=""/>
+                    <img src={logo} alt="" />
                 </div>
                 <ul className="sidebar-list">
                     {menus.map((item) => (
@@ -63,21 +98,20 @@ export const Sidebar = ({setUserRole}) => {
                     </li>
                     <li>
                         <span>1 BTC</span>
-                        <span>0000.00</span>
+                        <span>{cryptoPrices.bitcoin.toFixed(2)}</span>
                     </li>
                     <li>
                         <span>1 ETH</span>
-                        <span>0000.00</span>
+                        <span>{cryptoPrices.ethereum.toFixed(2)}</span>
                     </li>
                     <li>
                         <span>1 LTC</span>
-                        <span>0000.00</span>
+                        <span>{cryptoPrices.litecoin.toFixed(2)}</span>
                     </li>
                     <li>
                         <span>1 USDT</span>
-                        <span>0000.00</span>
+                        <span>{cryptoPrices.tether.toFixed(2)}</span>
                     </li>
-
                 </ul>
             </div>
         </SidebarLeft>);

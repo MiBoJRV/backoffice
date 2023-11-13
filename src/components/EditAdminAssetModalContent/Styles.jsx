@@ -128,6 +128,6 @@ export const ModalContent = styled ('div')`
     margin: 30px auto 0;
 
     &:hover {
-      background:
+      background: #260FA0;
     }
 `;

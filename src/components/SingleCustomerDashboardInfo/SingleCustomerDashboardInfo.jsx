@@ -14,6 +14,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
     const [showTextAsset, setShowTextAsset] = useState(true);
     const [showTextTransactions, setShowTextTransactions] = useState(true);
     const [showTextCustomers, setShowTextCustomers] = useState(true);
+    const [showTextAssetAllTransactions, setShowTextAssetAllTransactions] = useState(true);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -25,6 +26,7 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
         // setShowTextAsset(true);
         setShowTextTransactions(true);
         setShowTextCustomers(true);
+        setShowTextAssetAllTransactions(true);
     };
 
 
@@ -378,16 +380,16 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                 </div>
 
             </div>
-            {/*<div className="customers-table-info-content">*/}
-            {/*    <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal} showText={showText}/>*/}
-            {/*    <div className="transactions-info-group">*/}
-            {/*        <AdminTransactionsTable*/}
-            {/*            isTransactionCreateModalOpen={isTransactionCreateModalOpen}*/}
-            {/*            setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}*/}
-            {/*            {...customerData}*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="customers-table-info-content">
+                <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal} showText={showTextAssetAllTransactions}/>
+                <div className="transactions-info-group">
+                    <AdminTransactionsTable
+                        isTransactionCreateModalOpen={isTransactionCreateModalOpen}
+                        setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}
+                        {...customerData}
+                    />
+                </div>
+            </div>
 
         </DashboardContent>
     );

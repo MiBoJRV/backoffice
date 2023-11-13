@@ -1,5 +1,16 @@
 import React, { useState } from "react";
 import { ModalContent } from "./Styles.jsx";
+import success from "../../assets/images/status/success.svg";
+import fail from "../../assets/images/status/fail.svg";
+import inprogress from "../../assets/images/status/inprogress.svg";
+import newst from "../../assets/images/status/new.svg";
+
+// import inprogressImg from "../../assets/images/status/inprogress.svg";
+// import failImg from "../../assets/images/status/fail.svg";
+// import successImg from "../../assets/images/status/success.svg";
+// import newstImg from "../../assets/images/status/new.svg";
+
+import arr from "../../assets/images/data_ar.svg";
 
 const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTransactionData }) => {
     const [formData, setFormData] = useState({
@@ -7,6 +18,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
         numericId: editTransactionData?.numericId,
         name: editTransactionData?.name || "",
         status: editTransactionData?.status || "1",
+        statusFormatted: editTransactionData?.statusFormatted || "",
         description: editTransactionData?.description || "",
         country: editTransactionData?.country || "",
         recoveredAmount: editTransactionData?.recoveredAmount || "",
@@ -56,12 +68,17 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
         onClose();
     };
 
+    const handleStatusChange = (statusValue) => {
+        handleChange({ target: { name: "status", value: statusValue } });
+        document.getElementById("options").classList.remove("show");
+    };
+
     return (
         <ModalContent>
             <div className="modal-content">
-                <div className="create-assets-modal-fields">
+                <div className="edit-all-transaction-modal-fields">
                     <div>
-                        <label>Transaction ID:</label>
+                        <label htmlFor="numericId">Transaction ID</label>
                         <input
                             type="text"
                             id="numericId"
@@ -71,7 +88,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label>Name:</label>
+                        <label htmlFor="name">Name</label>
                         <input
                             type="text"
                             id="name"
@@ -80,29 +97,39 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                             onChange={handleChange}
                         />
                     </div>
-                    {/*<div>*/}
-                    {/*    <label>Status:</label>*/}
-                    {/*    <input*/}
-                    {/*        type="text"*/}
-                    {/*        id="statusFormatted"*/}
-                    {/*        name="statusFormatted"*/}
-                    {/*        value={formData.statusFormatted}*/}
-                    {/*        onChange={handleChange}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-
                     <div>
-                        <label>Status:</label>
-                        <select name="status" id="status" value={formData.status} onChange={handleChange}>
-                            <option value="1"> InProgress</option>
-                            <option value="2">Success</option>
-                            <option value="3">Fail</option>
-                            <option value="4">New</option>
-                        </select>
+                        <label htmlFor="status">Status</label>
+                        <div className="custom-select">
+                            <div className="selected-option" onClick={() => document.getElementById("options").classList.toggle("show")}>
+                                <img src={formData.status === 1 ? inprogress  :
+                                    formData.status === 2 ?  success:
+                                        formData.status === 3 ? fail :
+                                            formData.status === 4 ? newst : newst}
+                                     alt={formData.statusFormatted}
+                                     width="25"
+                                     height="25"
+                                />
+                                <img className="arr" src={arr} alt="arr" width="15" height="10"/>
+                            </div>
+                            <div id="options" className="options">
+                                <div onClick={() => { handleChange({ target: { name: "status", value: 1 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={inprogress} alt="inprogress" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "status", value: 2 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={success} alt="success" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "status", value: 3 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={fail} alt="fail" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleChange({ target: { name: "status", value: 4 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={newst} alt="newst" width="25" height="25" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
-                        <label>Description:</label>
+                        <label htmlFor="description">Description</label>
                         <input
                             type="text"
                             id="description"
@@ -112,7 +139,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label>Country:</label>
+                        <label htmlFor="country">Country</label>
                         <input
                             type="text"
                             id="country"
@@ -122,7 +149,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label>Recovered Amount:</label>
+                        <label htmlFor="recoveredAmount">Recovered Amount</label>
                         <input
                             type="text"
                             id="recoveredAmount"
@@ -132,7 +159,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label>Date:</label>
+                        <label htmlFor="date">Date</label>
                         <input
                             type="text"
                             id="date"

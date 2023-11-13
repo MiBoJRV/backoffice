@@ -122,6 +122,8 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                     <th>Country</th>
                     <th>Recovered Amount</th>
                     <th>Date</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
