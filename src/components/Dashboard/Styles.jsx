@@ -26,14 +26,6 @@ export const DashboardContent = styled.div`
       margin: 0 0 30px 0;
     }
 
-    //canvas {
-    //  max-width: 540px;
-    //  max-height: 111px;
-    //  height: 100%!important;
-    //  min-width: 540px;
-    //  width: 100% !important;
-    //}
-
     @media only screen and (max-width: 991px) {
       flex-direction: column;
     }
@@ -168,8 +160,11 @@ export const DashboardContent = styled.div`
     }
 
     .assets_table {
+      overflow-x: scroll;
+
       table {
         width: 100%;
+        min-width: 600px;
 
         th {
           color: #353535;
@@ -215,8 +210,8 @@ export const DashboardContent = styled.div`
       }
 
       .table-mobile {
-        overflow: scroll;
-        
+        overflow-x: scroll;
+
         & > div {
           display: flex;
           flex-direction: column;
@@ -275,7 +270,7 @@ export const DashboardContent = styled.div`
           .head {
             display: flex;
             justify-content: space-between;
-            gap: 10px;
+            gap: 20px;
           }
 
           .group {
@@ -319,8 +314,6 @@ export const DashboardContent = styled.div`
   }
 
   .assets_charts-line {
-    //max-width: 560px;
-    //max-height: 116px;
 
     canvas {
       //width: 560px!important;
@@ -329,6 +322,18 @@ export const DashboardContent = styled.div`
       max-height: 116px;
       max-width: 560px;
       min-width: 207px;
+    }
+  }
+  .second-graph-chart {
+    width: 100%;
+    overflow: scroll;
+    border: none;
+    box-shadow: none;
+
+    .chart-line {
+      border: none;
+      box-shadow: none;
+      margin: 20px;
     }
   }
 

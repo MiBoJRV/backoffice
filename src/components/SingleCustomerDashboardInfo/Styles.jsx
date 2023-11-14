@@ -134,7 +134,6 @@ export const DashboardContent = styled ('div')`
     }
 
     .chart-line {
-
       margin-bottom: 75px;
 
     }

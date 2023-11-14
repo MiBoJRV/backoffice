@@ -4,11 +4,8 @@ import Bg from './../../../assets/images/div.png';
 
 export const CustomerDashboardContent = styled.div`
   width: 100%;
-  //.page_content {
-  //  max-width: 1300px;
-  //  padding: 0 20px;
-  //  width: 100%;
-  //}
+  max-width: 1026px;
+  overflow: scroll;
 
 
   .dashboard_content {

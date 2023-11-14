@@ -140,36 +140,35 @@ export const Dashboard = ({...customerData}) => {
                         </table>
                     )}
                 </div>
-
-
                 <div className="assets_charts">
-                    <div className="main-graph-chart">
-                        <div className="assets_charts-line" style={{width: '540px', height: '111px'}}>
-                            <ChartsLine{...customerData}/>
-                        </div>
-                    </div>
+                    {/*<div className="main-graph-chart">*/}
+                    {/*    <div className="assets_charts-line" style={{width: '540px', height: '111px'}}>*/}
+                    {/*        <ChartsLine{...customerData}/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <div className="assets_charts-doughnut">
                         <ChartsDoughnut{...customerData} />
                     </div>
                 </div>
             </div>
-            {/*<div className="chart">*/}
-            {/*    <div style={{overflow: 'scroll'}}>*/}
-            {/*        <div className="charts-line"*/}
-            {/*             style={{*/}
-            {/*                 padding: '20px',*/}
-            {/*                 maxWidth: '958px',*/}
-            {/*                 minHeight: '369px',*/}
-            {/*                 height: '100%',*/}
-            {/*                 margin: '0 auto',*/}
-            {/*                 overflow: 'scroll',*/}
-            {/*                 width: '100%',*/}
-            {/*                 // overflow: 'hidden',*/}
-            {/*             }}>*/}
-            {/*            <ChartsLine13 {...customerData}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="second-graph-chart">
+
+                    {/*<div className="charts-line"*/}
+                    {/*     style={{*/}
+                    {/*         padding: '20px',*/}
+                    {/*         maxWidth: '958px',*/}
+                    {/*         minHeight: '369px',*/}
+                    {/*         height: '100%',*/}
+                    {/*         margin: '0 auto',*/}
+                    {/*         overflow: 'scroll',*/}
+                    {/*         width: '100%',*/}
+                    {/*         // overflow: 'hidden',*/}
+                    {/*     }}>*/}
+                    <div className="chart-line" style={{height: '369px', width: '958px'}}>
+                        <ChartsLine13 {...customerData}/>
+                    </div>
+
+            </div>
         </DashboardContent>
     )
 };
