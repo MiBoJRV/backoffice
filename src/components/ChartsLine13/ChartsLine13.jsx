@@ -101,6 +101,9 @@ export const ChartsLine13 = ({
                 display: false,
                 text: 'Chart.js Line Chart',
             },
+            tooltip: {
+                enabled: false,
+            },
         },
         scales: {
             // x: {

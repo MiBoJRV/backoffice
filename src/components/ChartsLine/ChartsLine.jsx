@@ -63,6 +63,8 @@ export const ChartsLine = ({
         mainGraph6,
     });
 
+
+
     const options = {
         maintainAspectRatio: false,
         responsive: true,
@@ -74,6 +76,9 @@ export const ChartsLine = ({
             title: {
                 display: false,
                 text: 'Chart.js Line Chart',
+            },
+            tooltip: {
+                enabled: false,
             },
         },
         scales: {
