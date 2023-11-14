@@ -19,9 +19,9 @@ export const TransactionsTableContent = styled.div`
       text-align: left;
       padding: 10px;
 
-      &:last-of-type {
-        text-align: center;
-      }
+      //&:last-of-type {
+      //  text-align: center;
+      //}
     }
 
     td {

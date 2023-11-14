@@ -48,10 +48,11 @@ export const CustomerCustomersContent = styled.div`
       line-height: normal;
       text-align: left;
       padding: 10px;
+      white-space: nowrap;
 
-      &:last-of-type {
-        text-align: center;
-      }
+      //&:last-of-type {
+      //  text-align: center;
+      //}
     }
 
     td {
