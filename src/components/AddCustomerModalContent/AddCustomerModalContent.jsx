@@ -51,7 +51,7 @@ const AddCustomerModalContent = ({onSave, onClose}) => {
                     <input type="text" name="date" value={formData.date} onChange={handleInputChange}/>
                 </div>
             </div>
-            <button onClick={handleSave}>Save</button>
+            <button className="modal-save" onClick={handleSave}>Save</button>
         </ModalContent>
     );
 };

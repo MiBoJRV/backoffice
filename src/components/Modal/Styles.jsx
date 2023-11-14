@@ -21,6 +21,7 @@ export const ModalOverlay = styled.div`
     max-width: 960px;
     width: 100%;
     text-align: center;
+    margin: 10px;
 
     .close-icon {
       position: absolute;

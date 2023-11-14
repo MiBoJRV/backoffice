@@ -33,6 +33,10 @@ export const CreateCustomerModalContent = styled ('div')`
       display: flex;
       flex-wrap: wrap;
       gap: 30px 20px;
+      
+      @media only screen and (max-width: 480px) {
+      flex-direction: column;
+      }
 
       & > div {
         border-radius: 10px;
@@ -44,6 +48,10 @@ export const CreateCustomerModalContent = styled ('div')`
         padding: 10px;
         display: flex;
         gap: 5px;
+        
+        @media only screen and (max-width: 480px) {
+        width: 100%;
+        }
 
         label {
           white-space: nowrap;

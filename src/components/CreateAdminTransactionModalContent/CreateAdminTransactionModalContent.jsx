@@ -115,7 +115,6 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}/>
                     </div>
-
                     <div>
                         <label htmlFor="status">Status</label>
                         <div className="custom-select">
