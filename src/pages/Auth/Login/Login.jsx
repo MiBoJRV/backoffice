@@ -51,7 +51,7 @@ const Login = ({ setUserRole }) => {
         <LoginSection>
             <div className="content">
                 <div className="login-form">
-                    <h2 className={"title"}>Login</h2>
+                    <h2 className={"title"}>Log In</h2>
                     <LoginForm setUserRole={setUserRole} />
                 </div>
                 <div className="image">

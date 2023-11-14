@@ -5,31 +5,32 @@ export const FormWrap = styled.div`
   width: 100%;
   position: relative;
   
-  @media only screen and (max-width: 991px) {
-    max-width: 273px;
+  @media only screen and (max-width: 600px) {
+    max-width: 320px;
   }
   
   form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     
     .error-message {
       position: absolute;
-      bottom: 85px;
+      bottom: 43px;
       color: #FF646B;
-      @media only screen and (max-width: 991px) {
-        bottom: 58px;
-      }
+      //@media only screen and (max-width: 991px) {
+      //  bottom: 58px;
+      //}
   }
   
   .form-group {
-    box-shadow: 0px 12px 60px 0px rgba(10, 45, 97, 0.10);
     height: 40px;
     display: flex;
     position: relative;
     align-items: flex-end;
-    background: #fff;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(88, 73, 114, 0.45);
   }
 
     label {
@@ -40,7 +41,7 @@ export const FormWrap = styled.div`
       line-height: normal;
       position: absolute;
       top: 3px;
-      left: 16px;
+      left: 20px;
     }
   }
   
@@ -54,7 +55,7 @@ export const FormWrap = styled.div`
     line-height: normal;
     outline: none;
     border-bottom: 1px solid #D7C8DB;
-    margin: 0 16px 7px;
+    margin: 0 20px 7px;
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
@@ -77,14 +78,16 @@ export const FormWrap = styled.div`
     border-radius: 7px;
     border: 2px solid #FFF;
     background: #FF646B;
-    width: 273px;
+    //width: 273px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9;
     outline: none;
-    margin: 65px auto 0;
+    margin: 15px auto 0;
+    max-width: 273px;
+    width: 100%;
 
     &:hover {
       background: #FF2731;
@@ -94,11 +97,11 @@ export const FormWrap = styled.div`
       background: #D5141D;
     }
 
-    @media only screen and (max-width: 991px) {
-      position: inherit;
-      margin: 25px auto 10px;
-      width: 100%;
-    }
+    //@media only screen and (max-width: 991px) {
+    //  position: inherit;
+    //  margin: 25px auto 10px;
+    //  width: 100%;
+    //}
 
   }
 

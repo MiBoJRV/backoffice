@@ -29,17 +29,32 @@ export const LoginSection = styled.section`
       transform: translate(-50%, -50%);
       z-index: 999;
       background: #ffffff;
+      padding: 30px 50px;
+      border-radius: 20px;
+      border: 1px solid #FFF;
+      background: rgba(250, 247, 253, 0.60);
+      box-shadow: 10px 4px 34px 0px rgba(114, 99, 139, 0.45);
+      backdrop-filter: blur(7px);
+      max-width: 530px;
+      width: 100%;
       
+      @media only screen and (max-width: 600px) {
+        max-width: 360px;
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
     }
 
     .title {
-      color: #1A181E;
+      color: #5900FF;
       text-align: center;
       font-size: 32px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      margin: 0 0 45px;
+      margin: 0 0 30px;
     }
 
     .image {
@@ -71,25 +86,28 @@ export const LoginSection = styled.section`
     }
   }
 
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 600px) {
     .content {
       display: flex;
       flex-direction: column;
       padding: 96px 15px 58px 15px;
 
-      .title {
-        text-align: center;
-        font-size: 20px;
-        line-height: 24px;
-        max-width: none;
-      }
+      //.title {
+      //  text-align: center;
+      //  font-size: 20px;
+      //  line-height: 24px;
+      //  max-width: none;
+      //}
 
       .image {
         order: 3;
         margin: 0;
+        position: static;
+        transform: none;
+        margin-top: 20px;
 
         img {
-          max-width: 330px;
+          max-width: 345px;
         }
       }
 
