@@ -9,6 +9,7 @@ export const CustomerCustomersSection = ({...customerData}) => {
     return (
         <CustomerContent>
             <PageCustomerContent>
+                <h2 className="customers-title">Customers</h2>
                 <CustomerPersonalInfo {...customerData}/>
                 <ClientsPortfolio{...customerData}/>
                 <CustomerCustomersTable/>

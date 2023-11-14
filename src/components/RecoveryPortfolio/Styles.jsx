@@ -34,7 +34,7 @@ export const RecoveryPortfolioContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap:  30px 10px;
-    justify-content: center;
+    justify-content: flex-start;
 
     h3 {
       color: #242424;

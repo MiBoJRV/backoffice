@@ -8,6 +8,7 @@ import {ClientsPortfolioContent} from "./Styles.jsx";
 export const ClientsPortfolio = ({...customerData}) => {
     return (
         <ClientsPortfolioContent className="clients-portfolio">
+            <hr/>
             <h2>Statistics</h2>
             <ul>
                 <li>
@@ -29,7 +30,9 @@ export const ClientsPortfolio = ({...customerData}) => {
                     <h3>
                         Amount recovered:
                     </h3>
-                    {customerData.amountRecovered}
+                    <span className="symbol">{customerData.currencySymbol}</span>
+                    <span>{customerData.amountRecovered}</span>
+
                 </li>
                 <li>
                     <img src={Icon4} alt=""/>

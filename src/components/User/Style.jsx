@@ -13,8 +13,7 @@ export const UserContent = styled.div`
   @media only screen and (max-width: 991px) {
     height: 54px;
   }
-
-
+  
   h5 {
     color: #FFF;
     text-align: right;
@@ -22,6 +21,10 @@ export const UserContent = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media only screen and (max-width: 991px) {
+      font-size: 16px;
+    }
   }
 
   .user_avatar {
@@ -43,8 +46,15 @@ export const UserContent = styled.div`
     text-transform: uppercase;
     padding-bottom: 2px;
 
+    @media only screen and (max-width: 991px) {
+      width: 38px;
+      height: 38px;
+      font-size: 32px;
+      margin: 0 24px 0 37px;
+    }
+
     @media only screen and (max-width: 420px) {
-      padding: 0 20px;
+      margin: 0 20px;
     }
   }
 
