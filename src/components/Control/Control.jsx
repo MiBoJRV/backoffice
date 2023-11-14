@@ -15,7 +15,6 @@ export const Control = ({title, buttonText, onClick, showText}) => {
                 ) : (
                     <img src={check} alt="Success Image" />
                 )}
-
             </button>
         </ControlContent>
     )

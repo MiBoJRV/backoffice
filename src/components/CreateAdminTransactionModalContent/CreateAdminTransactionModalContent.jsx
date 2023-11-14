@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {ModalContent} from "./Styles.jsx";
+import inprogress from "../../assets/images/status/inprogress.svg";
+import success from "../../assets/images/status/success.svg";
+import fail from "../../assets/images/status/fail.svg";
+import newst from "../../assets/images/status/new.svg";
+import arr from "../../assets/images/data_ar.svg";
 // import useSingleCustomer from "../../hooks/useSingleCustomer.jsx";
 
 
@@ -110,14 +115,36 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}/>
                     </div>
+
                     <div>
-                        <label htmlFor="name">Status</label>
-                        <select name="status" id="status" value={formData.status} onChange={handleInputChange}>
-                            <option value="4">New</option>
-                            <option value="1"> InProgress</option>
-                            <option value="2">Success</option>
-                            <option value="3">Fail</option>
-                        </select>
+                        <label htmlFor="status">Status</label>
+                        <div className="custom-select">
+                            <div className="selected-option" onClick={() => document.getElementById("options").classList.toggle("show")}>
+                                <img src={formData.status === 1 ? inprogress  :
+                                    formData.status === 2 ?  success:
+                                        formData.status === 3 ? fail :
+                                            formData.status === 4 ? newst : newst}
+                                     alt={formData.statusFormatted}
+                                     width="25"
+                                     height="25"
+                                />
+                                <img className="arr" src={arr} alt="arr" width="15" height="10"/>
+                            </div>
+                            <div id="options" className="options">
+                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 1 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={inprogress} alt="inprogress" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 2 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={success} alt="success" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 3 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={fail} alt="fail" width="25" height="25" />
+                                </div>
+                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 4 } }); document.getElementById("options").classList.remove("show"); }}>
+                                    <img src={newst} alt="newst" width="25" height="25" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="description">Description</label>

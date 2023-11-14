@@ -6,6 +6,7 @@ import Modal from "../Modal/Modal.jsx";
 import EditAdminTransactionModalContent from "../EditAdminTransactionModalContent/EditAdminTransactionModalContent.jsx";
 import CreateAdminTransactionModalContent
     from "../CreateAdminTransactionModalContent/CreateAdminTransactionModalContent.jsx";
+import styled from "styled-components";
 
 const useSingleCustomer = (id) => {
     const [customerData, setCustomerData] = useState(null);
@@ -43,6 +44,27 @@ const useSingleCustomer = (id) => {
 
     return {customerData, fetchData};
 };
+const TableRow = styled.tr`
+  background-color: ${(props) => {
+    switch (props.status) {
+      case 'InProgress':
+        return '#BCF0FB';
+      case 'Success':
+        return '#C1F1DC';
+      case 'Fail':
+        return '#FFD0D0';
+      case 4:
+        return '#E8E8E8';
+      default:
+        return 'transparent';
+    }
+  }};
+
+`;
+
+const TableCell = styled.td`
+  background-color: inherit !important; /* Щоб можна було успадковувати фон від TableRow */
+`;
 
 const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionCreateModalOpen}) => {
     // if (!customerData || !customerData.transactions) {
@@ -110,6 +132,7 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
         setIsTransactionCreateModalOpen(false);
     };
 
+
     return (
         <TransactionsTableContent>
             <table>
@@ -128,17 +151,18 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                 </thead>
                 <tbody>
                 {transactions.map(transaction => (
-                    <tr key={transaction.id}>
-                        <td>{transaction.numericId}</td>
-                        <td>{transaction.name}</td>
-                        <td>
+                    <TableRow key={transaction.id} status={transaction.statusFormatted}>
+                        <TableCell>{transaction.numericId}</TableCell>
+                        <TableCell>{transaction.name}</TableCell>
+                        <TableCell>
                             {/*{transaction.statusFormatted}*/}
-                            <img className="coin-icon" src={`${statusIconPath}${transaction.statusFormatted}.svg`} alt="" />
-                        </td>
-                        <td>{transaction.description}</td>
-                        <td>{transaction.country}</td>
-                        <td>{transaction.recoveredAmount}</td>
-                        <td>{transaction.date}</td>
+                            <img className="coin-icon" src={`${statusIconPath}${transaction.statusFormatted}.svg`}
+                                 alt=""/>
+                        </TableCell>
+                        <TableCell>{transaction.description}</TableCell>
+                        <TableCell>{transaction.country}</TableCell>
+                        <TableCell>{transaction.recoveredAmount}</TableCell>
+                        <TableCell>{transaction.date}</TableCell>
                         {userRole === 'Admin' && (
                             <td>
                                 <img
@@ -159,7 +183,7 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                                      onClick={() => handleDeleteTransactionTable(transaction.id)}/>
                             </td>
                         )}
-                    </tr>
+                    </TableRow>
                 ))}
                 </tbody>
             </table>

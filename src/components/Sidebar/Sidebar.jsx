@@ -4,7 +4,6 @@ import accountsIcon from "./../../assets/images/accounts.svg"
 import customersIcon from "./../../assets/images/customers.svg"
 import dashboardIcon from "./../../assets/images/dashboard.svg"
 import transactionsIcon from "./../../assets/images/transactions.svg"
-import ROUTES from "./../../router/routes.jsx"
 import { SidebarLeft } from "./Styles.jsx";
 import { Link } from "react-router-dom";
 

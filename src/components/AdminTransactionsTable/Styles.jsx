@@ -63,3 +63,4 @@ export const TransactionsTableContent = styled.div`
   }
 
 `;
+

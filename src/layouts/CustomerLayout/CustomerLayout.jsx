@@ -3,6 +3,7 @@ import { Sidebar } from "../../components/Sidebar/Sidebar.jsx";
 import { User } from "../../components/User/User.jsx";
 import {CustomerLayoutContent} from "./Styles.jsx";
 import useCustomerData from "../../hooks/useCustomerData.jsx";
+import {Outlet} from "react-router-dom";
 
 const CustomerLayout = ({ children, setUserRole }) => {
     const { customerData, error } = useCustomerData();
@@ -12,6 +13,7 @@ const CustomerLayout = ({ children, setUserRole }) => {
             <div className="page_content">
                 <Sidebar setUserRole={setUserRole} />
                 {children}
+                <Outlet />
             </div>
         </CustomerLayoutContent>
     );

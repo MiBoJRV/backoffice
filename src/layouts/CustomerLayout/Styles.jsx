@@ -16,5 +16,6 @@ export const CustomerLayoutContent = styled.div`
     padding: 0 20px;
     width: 100%;
     max-width: 1300px;
+    margin-bottom: 100px;
   }
 `;

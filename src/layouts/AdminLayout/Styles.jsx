@@ -16,6 +16,7 @@ export const AdminLayoutContent = styled.div`
     padding: 0 15px;
     width: 100%;
     max-width: 1300px;
+    margin-bottom: 100px;
 
     @media only screen and (max-width: 991px) {
     flex-direction: column;
