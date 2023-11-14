@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {EditCustomerMainModalContent} from "./Styles.jsx";
+import {ModalContent} from "./Styles.jsx";
 
 const EditCustomerModalContent = ({customer, onSave}) => {
     const [inputValue, setInputValue] = useState('');
@@ -27,7 +27,7 @@ const EditCustomerModalContent = ({customer, onSave}) => {
     };
 
     return (
-        <EditCustomerMainModalContent className="edit-customer-modal">
+        <ModalContent className="edit-customer-modal">
             <div className="edit-customer-modal-fields">
                 <div>
                     <label htmlFor="numericId">ID</label>
@@ -54,8 +54,8 @@ const EditCustomerModalContent = ({customer, onSave}) => {
                     <input type="text" name="date" value={editedData.date} onChange={handleInputChange}/>
                 </div>
             </div>
-            <button onClick={handleSave}>Save</button>
-        </EditCustomerMainModalContent>
+            <button className="modal-save" onClick={handleSave}>Save</button>
+        </ModalContent>
     );
 };
 

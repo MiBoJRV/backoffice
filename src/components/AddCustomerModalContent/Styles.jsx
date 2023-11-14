@@ -4,9 +4,9 @@ export const ModalContent = styled ('div')`
   .edit-customer-modal-fields {
     display: flex;
     row-gap: 30px;
-    
+
     @media only screen and (max-width: 480px) {
-    flex-direction: column;
+      flex-direction: column;
       gap: 0;
     }
 
@@ -20,7 +20,7 @@ export const ModalContent = styled ('div')`
         label,
         input {
           border-left: none;
-          
+
           @media only screen and (max-width: 480px) {
             border-left: 1px solid rgba(113, 113, 113, 0.20);
           }
@@ -39,7 +39,7 @@ export const ModalContent = styled ('div')`
         line-height: 20px;
         height: 40px;
         white-space: nowrap;
-        
+
         @media only screen and (max-width: 480px) {
           border-left: 1px solid rgba(113, 113, 113, 0.20);
         }
@@ -74,7 +74,7 @@ export const ModalContent = styled ('div')`
       background: #E8E8E8;
       border-left: none;
       justify-content: center;
-      
+
       @media only screen and (max-width: 480px) {
         border: 1px solid rgba(113, 113, 113, 0.20);
       }
@@ -105,7 +105,7 @@ export const ModalContent = styled ('div')`
       border-radius: 0 0 5px 5px;
       overflow: hidden;
       z-index: 1;
-      
+
       @media only screen and (max-width: 480px) {
         border: 1px solid rgba(113, 113, 113, 0.20);
       }
