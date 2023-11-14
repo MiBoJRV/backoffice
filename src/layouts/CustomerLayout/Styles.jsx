@@ -13,9 +13,14 @@ export const CustomerLayoutContent = styled.div`
   .page_content {
     display: flex;
     gap: 16px;
-    padding: 0 20px;
+    padding: 0 15px;
     width: 100%;
     max-width: 1300px;
     margin-bottom: 100px;
+
+    @media only screen and (max-width: 991px) {
+      flex-direction: column;
+
+    }
   }
 `;

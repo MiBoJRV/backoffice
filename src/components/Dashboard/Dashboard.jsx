@@ -8,10 +8,17 @@ import {ChartsLine13} from "../ChartsLine13/ChartsLine13.jsx";
 import {ChartsDoughnut} from "../ChartDoughnut/ChartDoughnut.jsx";
 import {CustomerPersonalInfo} from "../CustomerPersonalInfo/CustomerPersonalInfo.jsx";
 
+
 export const Dashboard = ({...customerData}) => {
     if (!customerData || !customerData.assets) {
         return <div>Loading...</div>; // or any other loading indicator/message
     }
+
+    const isMobileDevice = () => {
+        // Your logic to determine if it's a mobile device
+        // Example: Check if the screen width is below a certain threshold
+        return window.innerWidth <= 600;
+    };
 
     const differenceAmountValue = parseFloat(customerData?.differenceAmount);
     const isNegative = differenceAmountValue < 0;
@@ -48,70 +55,121 @@ export const Dashboard = ({...customerData}) => {
                         </span>
                     </div>
                 </div>
-                <div className="worth_right" style={{maxWidth: '540px', width: '100%', maxHeight: '111px'}}>
-                    <ChartsLine{...customerData}/>
+                <div className="main-graph-chart">
+                    <div className="worth_right chart-line"
+                         style={{width: '540px', height: '111px'}}
+                        // style={{maxWidth: '540px', width: '100%', maxHeight: '111px'}}
+                    >
+
+                        <ChartsLine{...customerData}/>
+
+                    </div>
                 </div>
             </div>
             <div className="assets">
                 <h2>
                     <span>Assets</span>
                     <span>
-                        {customerData?.currencySymbol}
-                        {customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0).toFixed(3)}
+                        <span>{customerData?.currencySymbol}</span>
+                        <span>{customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0).toFixed(3)}</span>
+
+
                     </span>
                 </h2>
                 <div className="assets_table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Amount</th>
-                            <th>Price</th>
-                            <th>Total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {customerData?.assets.map((asset) => (
-                            <tr key={asset.id}>
-                                <td>
-                                    <img className="assets_icon" src={`${cryptoIconPath}${asset.logoName}`}
-                                         alt={asset.name}/>
-                                    {asset.name}
-                                </td>
-                                <td>{asset.amount.toFixed(3)}</td>
-                                <td>${asset.price.toFixed(2)}</td>
-                                <td>${(asset.amount * asset.price).toFixed(3)}</td>
+                    {isMobileDevice() ? (
+                        <div className="table-mobile">
+                            {customerData?.assets.map((asset) => (
+                                <div key={asset.id}>
+                                    <div className="top">
+                                        <div className="head">
+                                            <span className="title">Name</span>
+                                        </div>
+                                        <div className="body">
+                                            <span>
+                                               <img className="assets_icon" src={`${cryptoIconPath}${asset.logoName}`}
+                                                    alt={asset.name}/>
+                                            </span>
+                                            <span className="data"> {asset.name}</span>
+
+                                        </div>
+                                    </div>
+                                    <div className="bottom">
+                                        <div className="head">
+                                            <div className="group">
+                                                <span className="title">Amount</span>
+                                                <span className="data">{asset.amount.toFixed(3)}</span>
+                                            </div>
+                                            <div className="group">
+                                                <span className="title"> Price</span>
+                                                <span className="data">${asset.price.toFixed(2)}</span>
+                                            </div>
+                                            <div className="group">
+                                                <span className="title">Total</span>
+                                                <span className="data">${(asset.amount * asset.price).toFixed(3)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Total</th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {customerData?.assets.map((asset) => (
+                                <tr key={asset.id}>
+                                    <td>
+                                        <img className="assets_icon" src={`${cryptoIconPath}${asset.logoName}`}
+                                             alt={asset.name}/>
+                                        {asset.name}
+                                    </td>
+                                    <td>{asset.amount.toFixed(3)}</td>
+                                    <td>${asset.price.toFixed(2)}</td>
+                                    <td>${(asset.amount * asset.price).toFixed(3)}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    )}
                 </div>
+
+
                 <div className="assets_charts">
-                    <div className="assets_charts-line" style={{maxWidth: '555px', width: '100%', maxHeight: '111px'}}>
-                        <ChartsLine{...customerData}/>
+                    <div className="main-graph-chart">
+                        <div className="assets_charts-line" style={{width: '540px', height: '111px'}}>
+                            <ChartsLine{...customerData}/>
+                        </div>
                     </div>
                     <div className="assets_charts-doughnut">
                         <ChartsDoughnut{...customerData} />
                     </div>
                 </div>
             </div>
-            <div className="chart">
-                <div style={{overflow: 'scroll'}}>
-                    <div className="charts-line"
-                         style={{
-                             padding: '20px',
-                             maxWidth: '958px',
-                             minHeight: '369px',
-                             height: '100%',
-                             margin: '0 auto',
-                             overflow: 'scroll',
-                             width: '100%',
-                             // overflow: 'hidden',
-                         }}>
-                        <ChartsLine13 {...customerData}/>
-                    </div>
-                </div>
-            </div>
+            {/*<div className="chart">*/}
+            {/*    <div style={{overflow: 'scroll'}}>*/}
+            {/*        <div className="charts-line"*/}
+            {/*             style={{*/}
+            {/*                 padding: '20px',*/}
+            {/*                 maxWidth: '958px',*/}
+            {/*                 minHeight: '369px',*/}
+            {/*                 height: '100%',*/}
+            {/*                 margin: '0 auto',*/}
+            {/*                 overflow: 'scroll',*/}
+            {/*                 width: '100%',*/}
+            {/*                 // overflow: 'hidden',*/}
+            {/*             }}>*/}
+            {/*            <ChartsLine13 {...customerData}/>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </DashboardContent>
     )
 };

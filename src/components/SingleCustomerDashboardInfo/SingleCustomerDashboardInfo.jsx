@@ -308,88 +308,88 @@ export const SingleCustomerDashboardInfo = ({...customerData}) => {
                     </div>
                 </div>
             </div>
-            {/*<div className="assets-info-content">*/}
-            {/*    <Control title="Asset" buttonText="Create" onClick={openCreateAssetModal} showText={showTextAsset}/>*/}
-            {/*    <div className="asset-info-group">*/}
-            {/*        <AdminAssetTable*/}
-            {/*            isAssetCreateModalOpen={isAssetCreateModalOpen}*/}
-            {/*            setIsAssetCreateModalOpen={setIsAssetCreateModalOpen}*/}
-            {/*            {...customerData}*/}
-            {/*        />*/}
-            {/*    </div>*/}
+            <div className="assets-info-content">
+                <Control title="Asset" buttonText="Create" onClick={openCreateAssetModal} showText={showTextAsset}/>
+                <div className="asset-info-group">
+                    <AdminAssetTable
+                        isAssetCreateModalOpen={isAssetCreateModalOpen}
+                        setIsAssetCreateModalOpen={setIsAssetCreateModalOpen}
+                        {...customerData}
+                    />
+                </div>
 
-            {/*</div>*/}
-            {/*<div className="transactions-info-content">*/}
-            {/*    <Control title="Transactions" buttonText="Save" onClick={handleSaveTransactions} showText={showTextTransactions}/>*/}
-            {/*    <div className="transactions-info-group">*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="totalLoss">Total Loss:</label>*/}
-            {/*            <input type="text" name="totalLoss" value={formData.totalLoss}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="totalRecovered">Total Recovered:</label>*/}
-            {/*            <input type="text" name="totalRecovered" value={formData.totalRecovered}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="paymentMethod">Payment Method:</label>*/}
-            {/*            <input type="text" name="paymentMethod" value={formData.paymentMethod}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="wallet"> Wallet:</label>*/}
-            {/*            <input type="text" name="wallet" value={formData.wallet}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="smartContractId">Smart Contract ID:</label>*/}
-            {/*            <input type="text" name="smartContractId" value={formData.smartContractId}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="scammedBy">Scammed By:</label>*/}
-            {/*            <input type="text" name="scammedBy" value={formData.scammedBy}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/*<div className="customers-info-content">*/}
-            {/*    <Control title="Customers" buttonText="Save" onClick={handleSaveCustomers} showText={showTextCustomers}/>*/}
-            {/*    <div className="customers-info-group">*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="totalClients">Total Clients:</label>*/}
-            {/*            <input type="text" name="totalClients" value={formData.totalClients}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="successfulCases">Successful Cases:</label>*/}
-            {/*            <input type="text" name="successfulCases" value={formData.successfulCases}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="amountRecovered">Amount recovered:</label>*/}
-            {/*            <input type="text" name="amountRecovered" value={formData.amountRecovered}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <label htmlFor="personalManager">Personal Manager:</label>*/}
-            {/*            <input type="text" name="personalManager" value={formData.personalManager}*/}
-            {/*                   onChange={handleInputChange}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
+            </div>
+            <div className="transactions-info-content">
+                <Control title="Transactions" buttonText="Save" onClick={handleSaveTransactions} showText={showTextTransactions}/>
+                <div className="transactions-info-group">
+                    <div>
+                        <label htmlFor="totalLoss">Total Loss:</label>
+                        <input type="text" name="totalLoss" value={formData.totalLoss}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="totalRecovered">Total Recovered:</label>
+                        <input type="text" name="totalRecovered" value={formData.totalRecovered}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="paymentMethod">Payment Method:</label>
+                        <input type="text" name="paymentMethod" value={formData.paymentMethod}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="wallet"> Wallet:</label>
+                        <input type="text" name="wallet" value={formData.wallet}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="smartContractId">Smart Contract ID:</label>
+                        <input type="text" name="smartContractId" value={formData.smartContractId}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="scammedBy">Scammed By:</label>
+                        <input type="text" name="scammedBy" value={formData.scammedBy}
+                               onChange={handleInputChange}/>
+                    </div>
+                </div>
+            </div>
+            <div className="customers-info-content">
+                <Control title="Customers" buttonText="Save" onClick={handleSaveCustomers} showText={showTextCustomers}/>
+                <div className="customers-info-group">
+                    <div>
+                        <label htmlFor="totalClients">Total Clients:</label>
+                        <input type="text" name="totalClients" value={formData.totalClients}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="successfulCases">Successful Cases:</label>
+                        <input type="text" name="successfulCases" value={formData.successfulCases}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="amountRecovered">Amount recovered:</label>
+                        <input type="text" name="amountRecovered" value={formData.amountRecovered}
+                               onChange={handleInputChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor="personalManager">Personal Manager:</label>
+                        <input type="text" name="personalManager" value={formData.personalManager}
+                               onChange={handleInputChange}/>
+                    </div>
+                </div>
 
-            {/*</div>*/}
-            {/*<div className="customers-table-info-content">*/}
-            {/*    <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal} showText={showTextAssetAllTransactions}/>*/}
-            {/*    <div className="transactions-info-group">*/}
-            {/*        <AdminTransactionsTable*/}
-            {/*            isTransactionCreateModalOpen={isTransactionCreateModalOpen}*/}
-            {/*            setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}*/}
-            {/*            {...customerData}*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            </div>
+            <div className="customers-table-info-content">
+                <Control title="All Transactions" buttonText="Create" onClick={openCreateTransactionModal} showText={showTextAssetAllTransactions}/>
+                <div className="transactions-info-group">
+                    <AdminTransactionsTable
+                        isTransactionCreateModalOpen={isTransactionCreateModalOpen}
+                        setIsTransactionCreateModalOpen={setIsTransactionCreateModalOpen}
+                        {...customerData}
+                    />
+                </div>
+            </div>
 
         </DashboardContent>
     );

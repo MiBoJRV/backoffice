@@ -15,6 +15,7 @@ export const DashboardContent = styled.div`
     display: flex;
     align-items: flex-start;
     gap: 55px;
+    flex-wrap: wrap;
 
     h2 {
       color: #1C0371;
@@ -36,91 +37,105 @@ export const DashboardContent = styled.div`
     @media only screen and (max-width: 991px) {
       flex-direction: column;
     }
-  }
 
-  .worth_left {
-    .total {
-      color: #000;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      margin-bottom: 18px;
-    }
-
-    .total_worth {
-      color: #5100FF;
-      font-size: 48px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      margin-bottom: 13px;
-      display: flex;
-      gap: 5px;
-    }
-
-    .difference {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .difference_amount {
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-
-    .difference_percent {
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      border-radius: 10px;
-      //background: #C1F1DC;
-      padding: 4px 5px;
-
-      &.negative {
-        color: #FF0000;
-        background: rgba(255, 45, 86, 0.20);
-
-        svg {
-          fill: #FF0000;
-        }
+    .worth_left {
+      .total {
+        color: #000;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 18px;
       }
 
-      &.positive {
+      .total_worth {
+        color: #5100FF;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 13px;
+        display: flex;
+        gap: 5px;
+      }
+
+      .difference {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .difference_amount {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .difference_percent {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 10px;
+        //background: #C1F1DC;
+        padding: 4px 5px;
+
+        &.negative {
+          color: #FF0000;
+          background: rgba(255, 45, 86, 0.20);
+
+          svg {
+            fill: #FF0000;
+          }
+        }
+
+        &.positive {
+          color: #0E840C;
+          background: #C1F1DC;
+
+          svg {
+            fill: #0E840C;
+          }
+        }
+
+        svg {
+          margin-right: 4px;
+          margin-bottom: 2px;
+        }
+
+      }
+
+      .positive {
         color: #0E840C;
-        background: #C1F1DC;
-
-        svg {
-          fill: #0E840C;
-        }
       }
 
-      svg {
-        margin-right: 4px;
-        margin-bottom: 2px;
+      .negative {
+        color: #FF0000;
       }
 
     }
 
-    .positive {
-      color: #0E840C;
+    .main-graph-chart {
+      width: 540px;
+      overflow: scroll;
+      border: none;
+      box-shadow: none;
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+      }
     }
 
-    .negative {
-      color: #FF0000;
-    }
+    .worth_right {
+      @media only screen and (max-width: 991px) {
+        margin: 0 auto;
+      }
 
-  }
-  
-  .worth_right {
-    @media only screen and (max-width: 991px) {
-    margin: 0 auto;
+
     }
   }
+
 
   .assets {
     border-radius: 10px;
@@ -140,6 +155,11 @@ export const DashboardContent = styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
+      & > span {
+        display: flex;
+        gap: 5px;
+      }
     }
 
     .assets_icon {
@@ -193,17 +213,107 @@ export const DashboardContent = styled.div`
           }
         }
       }
+
+      .table-mobile {
+        overflow: scroll;
+        
+        & > div {
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+        }
+
+        .top {
+          display: flex;
+          flex-direction: column;
+          gap: 42px;
+
+          .data {
+            color: #1A1A1A;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          .head {
+
+            .title {
+              color: #353535;
+              font-size: 13px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          }
+
+          .body {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+          }
+        }
+
+        .bottom {
+
+          .title {
+            color: #353535;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          .data {
+            color: #1A1A1A;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          .head {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+          }
+
+          .group {
+            display: flex;
+            flex-direction: column;
+            gap: 42px;
+
+            &:last-of-type {
+              .title {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
     }
 
     .assets_charts {
       display: flex;
       justify-content: space-between;
       gap: 30px;
+      flex-wrap: wrap;
 
       @media only screen and (max-width: 991px) {
         flex-direction: column;
         align-items: center;
         gap: 50px;
+      }
+
+      .main-graph-chart {
+        //width: 540px;
+        overflow: scroll;
+        border: none;
+        box-shadow: none;
+
+        @media only screen and (max-width: 991px) {
+          width: 100%;
+        }
       }
     }
   }

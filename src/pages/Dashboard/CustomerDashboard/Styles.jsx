@@ -10,6 +10,7 @@ export const CustomerDashboardContent = styled.div`
   //  width: 100%;
   //}
 
+
   .dashboard_content {
     display: flex;
     gap: 16px;
