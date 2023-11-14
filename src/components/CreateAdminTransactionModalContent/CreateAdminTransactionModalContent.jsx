@@ -131,16 +131,16 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
                                 <img className="arr" src={arr} alt="arr" width="15" height="10"/>
                             </div>
                             <div id="options" className="options">
-                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 1 } }); document.getElementById("options").classList.remove("show"); }}>
+                                <div className="inprogress" onClick={() => { handleInputChange({ target: { name: "status", value: 1 } }); document.getElementById("options").classList.remove("show"); }}>
                                     <img src={inprogress} alt="inprogress" width="25" height="25" />
                                 </div>
-                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 2 } }); document.getElementById("options").classList.remove("show"); }}>
+                                <div className="success" onClick={() => { handleInputChange({ target: { name: "status", value: 2 } }); document.getElementById("options").classList.remove("show"); }}>
                                     <img src={success} alt="success" width="25" height="25" />
                                 </div>
-                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 3 } }); document.getElementById("options").classList.remove("show"); }}>
+                                <div className="fail" onClick={() => { handleInputChange({ target: { name: "status", value: 3 } }); document.getElementById("options").classList.remove("show"); }}>
                                     <img src={fail} alt="fail" width="25" height="25" />
                                 </div>
-                                <div onClick={() => { handleInputChange({ target: { name: "status", value: 4 } }); document.getElementById("options").classList.remove("show"); }}>
+                                <div className="new" onClick={() => { handleInputChange({ target: { name: "status", value: 4 } }); document.getElementById("options").classList.remove("show"); }}>
                                     <img src={newst} alt="newst" width="25" height="25" />
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
                         <input type="text" name="date" value={formData.date} onChange={handleInputChange}/>
                     </div>
                 </div>
-                <button onClick={handleSave}>Save</button>
+                <button className="modal-save" onClick={handleSave}>Save</button>
             </div>
         </ModalContent>
     );

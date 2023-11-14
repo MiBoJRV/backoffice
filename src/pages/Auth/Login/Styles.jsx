@@ -15,13 +15,20 @@ export const LoginSection = styled.section`
 
   .content {
     max-width: 1440px;
-    margin: 0 auto;
-    padding: 100px 60px 0;
+    margin: 0px auto;
+    padding: 60px;
+    height: 100vh;
     
     .login-form {
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: #ffffff;
       
     }
 
@@ -36,10 +43,14 @@ export const LoginSection = styled.section`
     }
 
     .image {
-      margin-top: -213px;
       display: flex;
-      justify-content: flex-end;
-      //margin-right: 100px;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      margin: 0;
 
       img {
         width: 100%;

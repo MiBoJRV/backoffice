@@ -93,24 +93,52 @@ export const ModalContent = styled ('div')`
         display: block;
         background: #FFF;
       }
-
-      & div {
+      & > div {
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 8px;
         cursor: pointer;
-
+        
         &:hover {
-          background-color: #E8E8E8;
+          opacity: 0.8;
+        }
+        &.inprogress {
+          background: #BCF0FB;
+          
+        }
+
+        &.success {
+          background: #C1F1DC;
+        }
+        &.fail {
+          background: #FFD0D0;
+        }
+        &.new {
+          background: #E8E8E8;
         }
       }
+    }
+
+      //& div {
+      //  display: flex;
+      //  align-items: center;
+      //  justify-content: center;
+      //  padding: 8px;
+      //  cursor: pointer;
+      //
+      //  &:hover {
+      //    background-color: #E8E8E8;
+      //  }
+      //}
 
       img {
         height: 25px;
+        margin-right: 25px;
       }
     }
   }
-  button {
+  button.modal-save {
     border-radius: 10px;
     background: #1E0F6D;
     box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
