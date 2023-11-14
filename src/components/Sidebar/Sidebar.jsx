@@ -93,7 +93,7 @@ export const Sidebar = ({ setUserRole }) => {
                             Buy
                         </span>
                         <span>
-                            EUR
+                            USD
                         </span>
                     </li>
                     <li>

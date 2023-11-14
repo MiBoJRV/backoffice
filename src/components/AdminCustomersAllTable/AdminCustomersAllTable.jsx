@@ -93,6 +93,8 @@ const AdminCustomersAllTable = ({accessToken}) => {
         return <Navigate to={`/admin/customer?id=${selectedCustomerId}`}/>;
     }
 
+    const reversedCustomers = [...customers].reverse();
+
     return (
         <CustomersAllContent>
             <div className="table-control">

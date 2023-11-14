@@ -135,58 +135,60 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
 
     return (
         <TransactionsTableContent>
-            <table>
-                <thead>
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Description</th>
-                    <th>Country</th>
-                    <th>Recovered Amount</th>
-                    <th>Date</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {transactions.map(transaction => (
-                    <TableRow key={transaction.id} status={transaction.statusFormatted}>
-                        <TableCell>{transaction.numericId}</TableCell>
-                        <TableCell>{transaction.name}</TableCell>
-                        <TableCell>
-                            {/*{transaction.statusFormatted}*/}
-                            <img className="coin-icon" src={`${statusIconPath}${transaction.statusFormatted}.svg`}
-                                 alt=""/>
-                        </TableCell>
-                        <TableCell>{transaction.description}</TableCell>
-                        <TableCell>{transaction.country}</TableCell>
-                        <TableCell>{transaction.recoveredAmount}</TableCell>
-                        <TableCell>{transaction.date}</TableCell>
-                        {userRole === 'Admin' && (
-                            <td>
-                                <img
-                                    className="edit"
-                                    src={edit}
-                                    alt="icon"
-                                    onClick={() => {
-                                        handleEditTransaction(transaction.id);
-                                    }}
-                                />
-                            </td>
-                        )}
-                        {userRole === 'Admin' && (
-                            <td>
-                                <img className="bin"
-                                     src={bin}
-                                     alt="icon"
-                                     onClick={() => handleDeleteTransactionTable(transaction.id)}/>
-                            </td>
-                        )}
-                    </TableRow>
-                ))}
-                </tbody>
-            </table>
+            <div className="table-info">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Country</th>
+                        <th>Recovered Amount</th>
+                        <th>Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {transactions.map(transaction => (
+                        <TableRow key={transaction.id} status={transaction.statusFormatted}>
+                            <TableCell>{transaction.numericId}</TableCell>
+                            <TableCell>{transaction.name}</TableCell>
+                            <TableCell>
+                                {/*{transaction.statusFormatted}*/}
+                                <img className="coin-icon" src={`${statusIconPath}${transaction.statusFormatted}.svg`}
+                                     alt=""/>
+                            </TableCell>
+                            <TableCell>{transaction.description}</TableCell>
+                            <TableCell>{transaction.country}</TableCell>
+                            <TableCell>{transaction.recoveredAmount}</TableCell>
+                            <TableCell>{transaction.date}</TableCell>
+                            {userRole === 'Admin' && (
+                                <td>
+                                    <img
+                                        className="edit"
+                                        src={edit}
+                                        alt="icon"
+                                        onClick={() => {
+                                            handleEditTransaction(transaction.id);
+                                        }}
+                                    />
+                                </td>
+                            )}
+                            {userRole === 'Admin' && (
+                                <td>
+                                    <img className="bin"
+                                         src={bin}
+                                         alt="icon"
+                                         onClick={() => handleDeleteTransactionTable(transaction.id)}/>
+                                </td>
+                            )}
+                        </TableRow>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
             {isTransactionEditModalOpen && (
                 <Modal isOpen={setIsTransactionEditModalOpen} onClose={() => setIsTransactionEditModalOpen(false)}>
                     <EditAdminTransactionModalContent
@@ -198,6 +200,7 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                     />
                 </Modal>
             )}
+
             {isTransactionCreateModalOpen && (
                 <Modal isOpen={isTransactionCreateModalOpen} onClose={() => setIsTransactionCreateModalOpen(false)}>
                     <CreateAdminTransactionModalContent

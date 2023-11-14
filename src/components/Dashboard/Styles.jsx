@@ -55,6 +55,8 @@ export const DashboardContent = styled.div`
       font-weight: 700;
       line-height: normal;
       margin-bottom: 13px;
+      display: flex;
+      gap: 5px;
     }
 
     .difference {

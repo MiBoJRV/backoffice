@@ -6,4 +6,5 @@ export const AdminCustomerPageContent = styled ('div')`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  overflow: scroll;
 `;

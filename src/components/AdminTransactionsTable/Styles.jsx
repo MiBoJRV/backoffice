@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const TransactionsTableContent = styled.div`
+  .table-info {
+    overflow: scroll;
+  }
+  
   table {
     width: 100%;
     border-collapse: collapse;
@@ -42,6 +46,7 @@ export const TransactionsTableContent = styled.div`
     th, td {
       border: 1px solid rgba(0, 0, 0, 0.15);
       background: #FFF;
+      white-space: nowrap;
     }
 
 

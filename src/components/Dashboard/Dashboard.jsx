@@ -15,7 +15,7 @@ export const Dashboard = ({...customerData}) => {
 
     const differenceAmountValue = parseFloat(customerData?.differenceAmount);
     const isNegative = differenceAmountValue < 0;
-    const formattedDifferenceAmount = `${isNegative ? "-" : "+"}${customerData?.currencySymbol}${Math.abs(
+    const formattedDifferenceAmount = `${customerData?.currencySymbol} ${isNegative ? "-" : "+"} ${Math.abs(
         differenceAmountValue
     ).toFixed(2)}`;
 
@@ -28,9 +28,10 @@ export const Dashboard = ({...customerData}) => {
             <div className="worth">
                 <div className="worth_left">
                     <h2 className="total">Total Worth</h2>
-                    <h2 className="total_worth">{customerData?.currencySymbol}
+                    <h2 className="total_worth">
+                        <span>{customerData?.currencySymbol}</span>
+                        <span>{customerData?.totalWorth}</span>
                         {/*{customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0).toFixed(3)}*/}
-                        {customerData?.totalWorth}
                     </h2>
                     <div className="difference">
                         <span className={`difference_amount ${isNegative ? "negative" : "positive"}`}>
