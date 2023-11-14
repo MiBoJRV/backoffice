@@ -5,7 +5,7 @@ import customersIcon from "./../../assets/images/customers.svg"
 import dashboardIcon from "./../../assets/images/dashboard.svg"
 import transactionsIcon from "./../../assets/images/transactions.svg"
 import { SidebarLeft } from "./Styles.jsx";
-import { Link } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const ADMIN_MENUS = [
     {
@@ -68,6 +68,7 @@ export const Sidebar = ({ setUserRole }) => {
     const userRole = localStorage.getItem('userRole')
     const menus = userRole === "Customer" ? CUSTOMER_MENUS : ADMIN_MENUS;
 
+    const location = useLocation();
     return (
         <SidebarLeft>
             <div className="header-sidebar">
