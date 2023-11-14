@@ -22,7 +22,7 @@ export const Dashboard = ({...customerData}) => {
 
     const differenceAmountValue = parseFloat(customerData?.differenceAmount);
     const isNegative = differenceAmountValue < 0;
-    const formattedDifferenceAmount = `${customerData?.currencySymbol} ${isNegative ? "-" : "+"} ${Math.abs(
+    const formattedDifferenceAmount = `${customerData?.currencySymbol} ${isNegative ? "-" : "+"}${Math.abs(
         differenceAmountValue
     ).toFixed(2)}`;
 
@@ -102,11 +102,11 @@ export const Dashboard = ({...customerData}) => {
                                             </div>
                                             <div className="group">
                                                 <span className="title"> Price</span>
-                                                <span className="data">${asset.price.toFixed(2)}</span>
+                                                <span className="data"><span className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}</span>
                                             </div>
                                             <div className="group">
                                                 <span className="title">Total</span>
-                                                <span className="data">${(asset.amount * asset.price).toFixed(3)}</span>
+                                                <span className="data"><span className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -132,8 +132,8 @@ export const Dashboard = ({...customerData}) => {
                                         {asset.name}
                                     </td>
                                     <td>{asset.amount.toFixed(3)}</td>
-                                    <td>${asset.price.toFixed(2)}</td>
-                                    <td>${(asset.amount * asset.price).toFixed(3)}</td>
+                                    <td><span className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}</td>
+                                    <td><span className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}</td>
                                 </tr>
                             ))}
                             </tbody>

@@ -161,6 +161,10 @@ export const DashboardContent = styled.div`
 
     .assets_table {
       overflow-x: scroll;
+      
+      .symbol {
+        margin-right: 5px;
+      }
 
       table {
         width: 100%;
