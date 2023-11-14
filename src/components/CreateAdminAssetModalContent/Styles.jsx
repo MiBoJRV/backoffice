@@ -5,6 +5,11 @@ export const ModalContent = styled ('div')`
     display: flex;
     row-gap: 30px;
 
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+      gap: 0;
+    }
+
     & > div {
       display: flex;
       flex-direction: column;
@@ -14,6 +19,10 @@ export const ModalContent = styled ('div')`
         label,
         input {
           border-left: none;
+
+          @media only screen and (max-width: 480px) {
+            border-left: 1px solid rgba(113, 113, 113, 0.20);
+          }
         }
       }
 
@@ -97,6 +106,7 @@ export const ModalContent = styled ('div')`
       & div {
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 8px;
         cursor: pointer;
 
@@ -107,6 +117,7 @@ export const ModalContent = styled ('div')`
 
       img {
         height: 25px;
+        margin-right: 25px;
       }
     }
   }

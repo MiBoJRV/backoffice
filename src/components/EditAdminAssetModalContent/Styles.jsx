@@ -4,6 +4,11 @@ export const ModalContent = styled ('div')`
   .edit-assets-modal-fields {
     display: flex;
     row-gap: 30px;
+    
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+      gap: 0;
+    }
 
     & > div {
       display: flex;
@@ -14,6 +19,10 @@ export const ModalContent = styled ('div')`
         label,
         input {
           border-left: none;
+
+          @media only screen and (max-width: 480px) {
+            border-left: 1px solid rgba(113, 113, 113, 0.20);
+          }
         }
       }
       
@@ -28,8 +37,6 @@ export const ModalContent = styled ('div')`
         font-weight: 400;
         line-height: 20px;
         height: 40px;
-        
-       
       }
 
       input {
@@ -62,6 +69,10 @@ export const ModalContent = styled ('div')`
       border-left: none;
       justify-content: center;
 
+      @media only screen and (max-width: 480px) {
+        border-left: 1px solid rgba(113, 113, 113, 0.20);
+      }
+
       img {
         margin-right: 10px;
         width: 25px;
@@ -88,6 +99,7 @@ export const ModalContent = styled ('div')`
       border-radius: 0 0 5px 5px;
       overflow: hidden;
       z-index: 1;
+
 
       &.show {
         display: block;

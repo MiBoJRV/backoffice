@@ -54,7 +54,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
 
     return (
         <ModalContent>
-            <div className="modal-content">
+
                 <div className="edit-assets-modal-fields">
                     <div>
                         <label htmlFor="name">Name</label>
@@ -118,7 +118,7 @@ const EditAdminAssetModalContent = ({ onSave, onClose, onCreate, editAssetData }
                     </div>
                 </div>
                 <button onClick={handleSave}>Save</button>
-            </div>
+
         </ModalContent>
     );
 };

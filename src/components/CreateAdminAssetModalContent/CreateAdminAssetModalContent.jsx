@@ -96,7 +96,7 @@ const CreateAdminAssetModalContent = ({isOpen, onClose, onCreate}) => {
 
     return (
         <ModalContent>
-            <div className="modal-content">
+
                 <div className="create-assets-modal-fields">
                     <div>
                         <label htmlFor="name">Name</label>
@@ -139,16 +139,10 @@ const CreateAdminAssetModalContent = ({isOpen, onClose, onCreate}) => {
                                 </div>
                             </div>
                         </div>
-                        {/*<select name="logoName" value={formData.logoName} onChange={handleInputChange}>*/}
-                        {/*    <option value="bitcoin.svg"> Bitcoin</option>*/}
-                        {/*    <option value="usdt.svg">Tether</option>*/}
-                        {/*    <option value="ethereum.svg">Ethereum</option>*/}
-                        {/*    <option value="litecoin.svg">Litecoin</option>*/}
-                        {/*</select>*/}
                     </div>
                 </div>
                 <button onClick={handleSave}>Save</button>
-            </div>
+
         </ModalContent>
     );
 };
