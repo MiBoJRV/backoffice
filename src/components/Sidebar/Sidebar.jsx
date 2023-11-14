@@ -9,22 +9,22 @@ import {Link, useLocation} from "react-router-dom";
 
 const ADMIN_MENUS = [
     {
-        name: 'accounts', path: '/admin/accounts', icon: accountsIcon,
+        name: 'Accounts', path: '/admin/accounts', icon: accountsIcon,
     },
     {
-        name: 'customers', path: '/admin/customers', icon: customersIcon,
+        name: 'Customers', path: '/admin/customers', icon: customersIcon,
     },
 ];
 
 const CUSTOMER_MENUS = [
     {
-        name: 'dashboard', path: '/customer/dashboard', icon: dashboardIcon,
+        name: 'Dashboard', path: '/customer/dashboard', icon: dashboardIcon,
     },
     {
-        name: 'transactions', path: '/customer/transactions', icon: transactionsIcon,
+        name: 'Transactions', path: '/customer/transactions', icon: transactionsIcon,
     },
     {
-        name: 'customers', path: '/customer/customers', icon: customersIcon,
+        name: 'Customers', path: '/customer/customers', icon: customersIcon,
     },
 ];
 

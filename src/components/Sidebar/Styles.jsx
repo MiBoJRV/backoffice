@@ -53,10 +53,13 @@ export const SidebarLeft = styled.div`
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-
         display: flex;
         align-items: center;
         gap: 15px;
+        
+        @media only screen and (max-width: 991px) {
+          font-size: 13px;
+        }
       }
     }
   }

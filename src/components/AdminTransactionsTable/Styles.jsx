@@ -4,7 +4,7 @@ export const TransactionsTableContent = styled.div`
   .table-info {
     overflow: scroll;
   }
-  
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -36,6 +36,16 @@ export const TransactionsTableContent = styled.div`
       &:nth-last-child(2) {
         text-align: center;
         width: 50px;
+      }
+
+      &.icon {
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      .coin-icon {
+        width: 21px;
+        height: 21px;
       }
     }
 

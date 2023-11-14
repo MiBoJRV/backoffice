@@ -64,6 +64,10 @@ const TableRow = styled.tr`
 
 const TableCell = styled.td`
   background-color: inherit !important; /* Щоб можна було успадковувати фон від TableRow */
+  
+  .symbol {
+    margin-right: 5px;
+  }
 `;
 
 const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionCreateModalOpen}) => {
@@ -155,14 +159,14 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                         <TableRow key={transaction.id} status={transaction.statusFormatted}>
                             <TableCell>{transaction.numericId}</TableCell>
                             <TableCell>{transaction.name}</TableCell>
-                            <TableCell>
+                            <TableCell className="icon">
                                 {/*{transaction.statusFormatted}*/}
                                 <img className="coin-icon" src={`${statusIconPath}${transaction.statusFormatted}.svg`}
                                      alt=""/>
                             </TableCell>
                             <TableCell>{transaction.description}</TableCell>
                             <TableCell>{transaction.country}</TableCell>
-                            <TableCell>{transaction.recoveredAmount}</TableCell>
+                            <TableCell><span className="symbol">{customerData.currencySymbol}</span>{transaction.recoveredAmount}</TableCell>
                             <TableCell>{transaction.date}</TableCell>
                             {userRole === 'Admin' && (
                                 <td>

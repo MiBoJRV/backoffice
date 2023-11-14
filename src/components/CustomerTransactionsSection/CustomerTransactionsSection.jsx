@@ -9,6 +9,7 @@ const CustomerTransactionsSection = ({...customerData}) => {
     return (
         <TransactionsTableContent>
             <PageCustomerContent>
+                <h2 className="transaction-title">Transactions</h2>
                 <CustomerPersonalInfo {...customerData}/>
                 <RecoveryPortfolio{...customerData}/>
                 <TransactionsTable {...customerData}/>

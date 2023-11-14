@@ -37,6 +37,16 @@ export const TransactionsTableContent = styled.div`
         text-align: center;
         width: 50px;
       }
+
+      &.icon {
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      .coin-icon {
+        width: 21px;
+        height: 21px;
+      }
     }
 
     tr {
@@ -48,5 +58,22 @@ export const TransactionsTableContent = styled.div`
       background: #FFF;
       white-space: nowrap;
     }
+
+
+    .add {
+      border-radius: 10px;
+      background: #1E0F6D;
+      box-shadow: 0 10px 60px 0 rgba(10, 45, 97, 0.10);
+      width: 19px;
+      height: 19px;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .edit,
+    .bin {
+      cursor: pointer;
+    }
+
   }
 `;

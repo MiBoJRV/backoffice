@@ -10,21 +10,30 @@ import {RecoveryPortfolioContent} from "./Styles.jsx";
 export const RecoveryPortfolio = ({...customerData}) => {
     return (
         <RecoveryPortfolioContent className="recovery-portfolio">
+            <hr/>
             <h2>Recovery Portfolio</h2>
             <ul>
                 <li>
-                    <img src={Icon1} alt=""/>
+                    <img src={Icon1} alt="icon"/>
                     <h3>
                         Total Loss:
                     </h3>
-                    {customerData.totalLoss}
+                    <span className="total-loss">
+                        <span>{customerData.currencySymbol}</span>
+                        <span>{customerData.totalLoss}</span>
+                    </span>
+
                 </li>
                 <li>
                     <img src={Icon2} alt=""/>
                     <h3>
                         Total Recovered:
                     </h3>
-                    {customerData.totalRecovered}
+                    <span className="total-recovered">
+                        <span>{customerData.currencySymbol}</span>
+                        <span>{customerData.totalRecovered}</span>
+                    </span>
+
                 </li>
                 <li>
                     <img src={Icon3} alt=""/>
