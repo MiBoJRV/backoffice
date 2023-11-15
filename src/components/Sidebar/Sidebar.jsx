@@ -39,23 +39,23 @@ export const Sidebar = ({ setUserRole }) => {
     useEffect(() => {
         const fetchCryptoPrices = async () => {
             try {
-                const responseBitcoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur");
+                const responseBitcoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
                 const dataBitcoin = await responseBitcoin.json();
 
-                const responseEthereum = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur");
+                const responseEthereum = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
                 const dataEthereum = await responseEthereum.json();
 
-                const responseLitecoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=eur");
+                const responseLitecoin = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=usd");
                 const dataLitecoin = await responseLitecoin.json();
 
-                const responseTether = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=eur");
+                const responseTether = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd");
                 const dataTether = await responseTether.json();
 
                 setCryptoPrices({
-                    bitcoin: dataBitcoin.bitcoin.eur,
-                    ethereum: dataEthereum.ethereum.eur,
-                    litecoin: dataLitecoin.litecoin.eur,
-                    tether: dataTether.tether.eur,
+                    bitcoin: dataBitcoin.bitcoin.usd,
+                    ethereum: dataEthereum.ethereum.usd,
+                    litecoin: dataLitecoin.litecoin.usd,
+                    tether: dataTether.tether.usd,
                 });
             } catch (error) {
                 console.error("Error fetching crypto prices", error);
