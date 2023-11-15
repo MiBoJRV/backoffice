@@ -109,6 +109,7 @@ export const ModalContent = styled ('div')`
       & div {
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 8px;
         cursor: pointer;
 
@@ -119,6 +120,7 @@ export const ModalContent = styled ('div')`
 
       img {
         height: 25px;
+        margin-right: 25px;
       }
     }
   }

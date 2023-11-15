@@ -129,9 +129,18 @@ export const DashboardContent = styled ('div')`
 
     .main-graph-chart {
       width: 100%;
-      overflow: scroll;
+      //overflow: scroll;
       border: none;
       box-shadow: none;
+      
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      @media only screen and (max-width: 991px) {
+        width: 100%;
+        overflow-x: scroll;
+      }
     }
 
     .chart-line {
@@ -209,9 +218,13 @@ export const DashboardContent = styled ('div')`
 
     .second-graph-chart {
       width: 100%;
-      overflow: scroll;
+      overflow-x: scroll;
       border: none;
       box-shadow: none;
+      
+      &::-webkit-scrollbar {
+        width: 0;
+      }
     }
 
     .chart-line {

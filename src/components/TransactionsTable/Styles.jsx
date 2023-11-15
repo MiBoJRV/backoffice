@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const TransactionsTableContent = styled.div`
   .table-info {
-    overflow: scroll;
+    overflow-x: scroll;
+    
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 
   table {

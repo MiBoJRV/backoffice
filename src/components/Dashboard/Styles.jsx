@@ -110,12 +110,17 @@ export const DashboardContent = styled.div`
 
     .main-graph-chart {
       width: 540px;
-      overflow: scroll;
+      //overflow-x: scroll;
       border: none;
       box-shadow: none;
 
+      &::-webkit-scrollbar {
+        width:0;
+      }
+
       @media only screen and (max-width: 991px) {
         width: 100%;
+        overflow-x: scroll;
       }
     }
 
@@ -161,6 +166,10 @@ export const DashboardContent = styled.div`
 
     .assets_table {
       overflow-x: scroll;
+      
+      &::-webkit-scrollbar {
+        width: 0;
+      }
       
       .symbol {
         margin-right: 5px;
@@ -218,6 +227,10 @@ export const DashboardContent = styled.div`
         display: flex;
         flex-direction: column;
         gap: 50px;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
 
         & > div {
           display: flex;
@@ -309,12 +322,17 @@ export const DashboardContent = styled.div`
 
       .main-graph-chart {
         //width: 540px;
-        overflow: scroll;
+        //overflow: scroll;
         border: none;
         box-shadow: none;
 
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+
         @media only screen and (max-width: 991px) {
           width: 100%;
+          overflow-x: scroll;
         }
       }
     }
@@ -333,9 +351,30 @@ export const DashboardContent = styled.div`
   }
   .second-graph-chart {
     width: 100%;
-    overflow: scroll;
+    overflow-x: scroll;
     border: none;
     box-shadow: none;
+    
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    //&::-webkit-scrollbar-track {
+    //  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    //}
+    //&::-webkit-scrollbar-thumb {
+    //  background-color: darkgrey;
+    //  outline: 1px solid slategrey;
+    //}
+    //&::-webkit-scrollbar-horizontal {
+    //  height: 0.5em;
+    //}
+    //&::-webkit-scrollbar-horizontal-track {
+    //  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    //}
+    //:-webkit-scrollbar-horizontal-thumb {
+    //  background-color: darkgrey;
+    //  outline: 1px solid slategrey;
+    //}
 
     .chart-line {
       border: none;

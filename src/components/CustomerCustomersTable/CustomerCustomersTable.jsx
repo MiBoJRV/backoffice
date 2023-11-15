@@ -13,6 +13,7 @@ import useAdminCustomerLocalUpdate from "../../hooks/useAdminCustomerLocalUpdate
 import angleLeft from "../../assets/images/angle-left.svg";
 import angleRight from "../../assets/images/angle-right.svg";
 import TableEntries from "../TableEntries/TableEntries.jsx";
+import {TableSize} from "../TableSize/TableSize.jsx";
 
 const CustomerCustomersTable = ({accessToken}) => {
     const {
@@ -87,16 +88,7 @@ const CustomerCustomersTable = ({accessToken}) => {
 
     return (
         <CustomerCustomersContent>
-            <div className="table-size">
-                Show
-                <select value={pageSize} onChange={(e) => handlePageSizeChange(e.target.value)}>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                entries
-            </div>
+            <TableSize handlePageSizeChange={handlePageSizeChange} pageSize={pageSize}/>
             <div className="table-info">
                 <table>
                     <thead>

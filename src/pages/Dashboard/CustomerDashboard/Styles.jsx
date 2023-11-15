@@ -5,7 +5,11 @@ import Bg from './../../../assets/images/div.png';
 export const CustomerDashboardContent = styled.div`
   width: 100%;
   max-width: 1026px;
-  overflow: scroll;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
 
   .dashboard_content {

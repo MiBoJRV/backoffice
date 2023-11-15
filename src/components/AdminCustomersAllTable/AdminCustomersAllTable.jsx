@@ -14,6 +14,8 @@ import angleRight from './../../assets/images/angle-right.svg';
 import angleLeft from './../../assets/images/angle-left.svg';
 import { CustomersAllContent } from "./Styles.jsx";
 import TableEntries  from "../TableEntries/TableEntries.jsx";
+import {Search} from "../Search/Search.jsx";
+import {TableSize} from "../TableSize/TableSize.jsx";
 
 const AdminCustomersAllTable = ({ accessToken }) => {
     const {
@@ -107,19 +109,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
     return (
         <CustomersAllContent>
             <div className="table-control">
-                <div className="search">
-                    <img
-                        className="search-icon"
-                        src={search}
-                        alt="icon"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                </div>
+                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 <div className="date-filter">
                     <ReactDatePicker
                         selected={selectedDate || getCurrentDate()}
@@ -136,16 +126,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                     <button onClick={openEditModal}>Create</button>
                 </div>
             </div>
-            <div className="table-size">
-                Show
-                <select value={pageSize} onChange={(e) => handlePageSizeChange(e.target.value)}>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                entries
-            </div>
+            <TableSize handlePageSizeChange={handlePageSizeChange} pageSize={pageSize}/>
             <div className="table-info">
                 <table>
                     <thead>

@@ -17,7 +17,11 @@ export const AdminAssetTableContent = styled ('div')`
   }
 
   .table-info {
-    overflow: scroll;
+    overflow-x: scroll;
+    
+    &::-webkit-scrollbar {
+        width: 0;
+    }
   }
 
   table {
