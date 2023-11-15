@@ -232,6 +232,7 @@ export const CustomersAllContent = styled.div`
 
         &:disabled {
           opacity: 0.5;
+          cursor: auto;
         }
       }
     }

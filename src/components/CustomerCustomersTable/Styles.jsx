@@ -147,6 +147,7 @@ export const CustomerCustomersContent = styled.div`
 
         &:disabled {
           opacity: 0.5;
+          cursor: auto;
         }
       }
     }

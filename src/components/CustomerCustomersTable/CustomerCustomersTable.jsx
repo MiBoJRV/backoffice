@@ -12,6 +12,7 @@ import useAdminCustomerLocalAdd from "../../hooks/useAdminCustomerAdd.jsx";
 import useAdminCustomerLocalUpdate from "../../hooks/useAdminCustomerLocalUpdate.jsx";
 import angleLeft from "../../assets/images/angle-left.svg";
 import angleRight from "../../assets/images/angle-right.svg";
+import TableEntries from "../TableEntries/TableEntries.jsx";
 
 const CustomerCustomersTable = ({accessToken}) => {
     const {
@@ -28,6 +29,7 @@ const CustomerCustomersTable = ({accessToken}) => {
     const {handleDeleteCustomer, error} = useAdminCustomerLocalDelete(fetchCustomers);
 
     const userRole = localStorage.getItem('userRole');
+
     const startIndex = (currentPage - 1) * pageSize + 1;
     const endIndex = Math.min(startIndex + pageSize - 1, customers.length);
     const totalEntries = customers.length;
@@ -107,7 +109,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                     </tr>
                     </thead>
                     <tbody>
-                    {customers.slice(0, pageSize).map((customer) => (
+                    {customers.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((customer) => (
                         <tr key={customer.id}>
                             <td>{customer.numericId}</td>
                             <td>{customer.name}</td>
@@ -140,24 +142,15 @@ const CustomerCustomersTable = ({accessToken}) => {
                     </tbody>
                 </table>
             </div>
-            <div className="table-entries">
-                <p>
-                    Showing {startIndex} to {endIndex} of {totalEntries} entries
-                </p>
-                <div className="table-pages">
-                    {totalPages > 1 && (
-                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                            <img className="page-icon" src={angleLeft} alt="icon"/>
-                        </button>
-                    )}
-                    <span className="page">{currentPage}</span>
-                    {totalPages > 1 && (
-                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                            <img className="page-icon" src={angleRight} alt="icon"/>
-                        </button>
-                    )}
-                </div>
-            </div>
+            <TableEntries
+                startIndex={startIndex}
+                endIndex={endIndex}
+                totalEntries={totalEntries}
+                handlePreviousPage={handlePreviousPage}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handleNextPage={handleNextPage}
+            />
             {isModalOpen && selectedCustomer && (
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <EditCustomerModalContent customer={selectedCustomer} onSave={handleSaveEditedCustomer}/>

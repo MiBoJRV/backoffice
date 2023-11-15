@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 const apiUrl = 'https://highdardata.xyz/office/v1/customers/getAll';
 
@@ -31,9 +31,9 @@ const useFetchCustomersAll = (accessToken) => {
         }
     };
 
-    useEffect(() => {
-        fetchCustomers();
-    }, [accessToken]);
+    // useEffect(() => {
+    //     fetchCustomers();
+    // }, [accessToken]);
 
     useEffect(() => {
         setFilteredCustomers(customers);
@@ -92,6 +92,7 @@ const useFetchCustomersAll = (accessToken) => {
         })
         .slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
+    const allCustomers = customers;
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
@@ -112,13 +113,14 @@ const useFetchCustomersAll = (accessToken) => {
         currentPage,
         setCurrentPage,
         totalPages,
+        setTotalPages,
         searchTerm,
         setSearchTerm,
         handlePageChange,
         selectedDate,
         handleDateChange,
-
         fetchCustomers,
+        allCustomers
     };
 };
 

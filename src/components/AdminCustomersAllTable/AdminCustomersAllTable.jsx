@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Navigate} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import { Navigate } from "react-router-dom";
 import useFetchCustomersAll from "../../hooks/useFetchCustomersAll.jsx";
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,29 +12,32 @@ import search from './../../assets/images/search.svg';
 import dataAr from './../../assets/images/data_ar.svg';
 import angleRight from './../../assets/images/angle-right.svg';
 import angleLeft from './../../assets/images/angle-left.svg';
-import {CustomersAllContent} from "./Styles.jsx";
-import {TableEntries} from "../TableEntries/TableEntries.jsx";
+import { CustomersAllContent } from "./Styles.jsx";
+import TableEntries  from "../TableEntries/TableEntries.jsx";
 
-
-const AdminCustomersAllTable = ({accessToken}) => {
+const AdminCustomersAllTable = ({ accessToken }) => {
     const {
         customers,
+        // customers: paginatedCustomers,
         pageSize,
         setPageSize,
         currentPage,
         setCurrentPage,
         totalPages,
+        setTotalPages,
         searchTerm,
         setSearchTerm,
         handlePageChange,
         selectedDate,
         handleDateChange,
         fetchCustomers,
+        allCustomers
     } = useFetchCustomersAll(accessToken);
 
+
     const startIndex = (currentPage - 1) * pageSize + 1;
-    const endIndex = Math.min(startIndex + pageSize - 1, customers.length);
-    const totalEntries = customers.length;
+    const endIndex = Math.min(startIndex + pageSize - 1, allCustomers.length);
+    const totalEntries = allCustomers.length;
 
     const handlePreviousPage = () => {
         if (currentPage > 1) {
@@ -67,7 +70,6 @@ const AdminCustomersAllTable = ({accessToken}) => {
         return new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
     };
 
-    //edit customer
     const [isEModalOpen, setIsEModalOpen] = useState(false);
     const [selectedCustomer, setSelectedCustomer] = useState(null);
 
@@ -75,26 +77,26 @@ const AdminCustomersAllTable = ({accessToken}) => {
         setIsEModalOpen(true);
         setSelectedCustomer(customer);
     };
-    const {handleUpdateCustomer, error: updateError} = useAdminCustomerUpdate(fetchCustomers);
+
+    const { handleUpdateCustomer, error: updateError } = useAdminCustomerUpdate(fetchCustomers);
 
     const handleSaveEditedCustomer = async (editedCustomer) => {
         await handleUpdateCustomer(editedCustomer);
         setIsEModalOpen(false);
     };
-    // redirect to customer page
+
     const [redirectToCustomer, setRedirectToCustomer] = useState(false);
     const [selectedCustomerId, setSelectedCustomerId] = useState(null);
+
     const handleEditPageCustomer = (customerId) => {
         setSelectedCustomerId(customerId.id);
         setRedirectToCustomer(true);
-        console.log(customerId.id)
+        console.log(customerId.id);
     };
 
     if (redirectToCustomer && selectedCustomerId) {
         return <Navigate to={`/admin/customer?id=${selectedCustomerId}`}/>;
     }
-
-    const reversedCustomers = [...customers].reverse();
 
     return (
         <CustomersAllContent>
@@ -123,7 +125,6 @@ const AdminCustomersAllTable = ({accessToken}) => {
                         src={dataAr}
                         alt="icon"
                     />
-
                 </div>
                 <div className="create-new">
                     <button onClick={openEditModal}>Create</button>
@@ -178,24 +179,15 @@ const AdminCustomersAllTable = ({accessToken}) => {
                     </tbody>
                 </table>
             </div>
-            <div className="table-entries">
-                <p>
-                    Showing {startIndex} to {endIndex} of {totalEntries} entries
-                </p>
-                <div className="table-pages">
-                    {totalPages > 1 && (
-                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                            <img className="page-icon" src={angleLeft} alt="icon"/>
-                        </button>
-                    )}
-                    <span className="page">{currentPage}</span>
-                    {totalPages > 1 && (
-                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                            <img className="page-icon" src={angleRight} alt="icon"/>
-                        </button>
-                    )}
-                </div>
-            </div>
+            <TableEntries
+                startIndex={startIndex}
+                endIndex={endIndex}
+                totalEntries={totalEntries}
+                handlePreviousPage={handlePreviousPage}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handleNextPage={handleNextPage}
+            />
             {isEModalOpen && selectedCustomer && (
                 <Modal isOpen={isEModalOpen} onClose={() => setIsEModalOpen(false)}>
                     <EditCustomerModalContent customer={selectedCustomer} onSave={handleSaveEditedCustomer}/>
@@ -211,4 +203,3 @@ const AdminCustomersAllTable = ({accessToken}) => {
 };
 
 export default AdminCustomersAllTable;
-
