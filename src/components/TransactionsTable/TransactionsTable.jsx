@@ -95,7 +95,7 @@ const TransactionsTable = ({...customerData}) => {
                         <th>Name</th>
                         <th>Status</th>
                         <th>Description</th>
-                        <th>Country</th>
+                        <th>Address wallet</th>
                         <th>Recovered Amount</th>
                         <th>Date</th>
                     </tr>

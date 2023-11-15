@@ -69,6 +69,7 @@ export const DashboardContent = styled ('div')`
 
           label {
             white-space: nowrap;
+            font-weight: 700;
           }
 
         }
@@ -95,7 +96,7 @@ export const DashboardContent = styled ('div')`
       color: #1A1A1A;
       font-size: 16px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 700;
       line-height: normal;
     }
 
@@ -175,7 +176,7 @@ export const DashboardContent = styled ('div')`
       color: #1A1A1A;
       font-size: 16px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 700;
       line-height: normal;
     }
 
@@ -232,6 +233,7 @@ export const DashboardContent = styled ('div')`
 
       label {
         white-space: nowrap;
+        font-weight: 700;
       }
 
     }
@@ -311,6 +313,7 @@ export const DashboardContent = styled ('div')`
 
         label {
           white-space: nowrap;
+          font-weight: 700;
         }
 
       }
@@ -358,6 +361,7 @@ export const DashboardContent = styled ('div')`
 
         label {
           white-space: nowrap;
+          font-weight: 700;
         }
 
       }

@@ -36,6 +36,10 @@ export const PersonalInfoContent = styled.div`
       gap: 10px;
       min-width: 260px;
       width: calc(35% - 50px);
+      
+      .label {
+        font-weight: 700;
+      }
 
       span {
         color: #1A1A1A;

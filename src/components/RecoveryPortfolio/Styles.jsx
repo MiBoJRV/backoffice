@@ -40,9 +40,10 @@ export const RecoveryPortfolioContent = styled.div`
       color: #242424;
       font-size: 16px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 700;
       line-height: normal;
       white-space: nowrap;
+      
     }
     
     li {

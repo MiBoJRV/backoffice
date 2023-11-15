@@ -29,13 +29,12 @@ export const ClientsPortfolioContent = styled.div`
     gap: 30px 10px;
     justify-content: flex-start;
 
-
-
+    
     h3 {
       color: #242424;
       font-size: 16px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 700;
       line-height: normal;
     }
 

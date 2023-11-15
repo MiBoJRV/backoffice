@@ -139,7 +139,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label htmlFor="country">Country</label>
+                        <label htmlFor="country">Address wallet</label>
                         <input
                             type="text"
                             id="country"

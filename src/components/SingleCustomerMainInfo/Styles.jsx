@@ -56,6 +56,7 @@ export const MainContent = styled ('div')`
 
         label {
           white-space: nowrap;
+          font-weight: 700;
         }
       }
     }
