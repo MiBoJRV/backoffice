@@ -45,6 +45,7 @@ const useFetchCustomers = (accessToken) => {
         currentPage,
         setCurrentPage,
         totalPages,
+        setTotalPages,
         handlePageChange,
         fetchCustomers,
     };

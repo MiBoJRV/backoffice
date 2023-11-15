@@ -22,6 +22,7 @@ const CustomerCustomersTable = ({accessToken}) => {
         currentPage,
         setCurrentPage,
         totalPages,
+        setTotalPages,
         handlePageChange,
         fetchCustomers,
     } = useFetchCustomers(accessToken);
@@ -34,6 +35,14 @@ const CustomerCustomersTable = ({accessToken}) => {
     const endIndex = Math.min(startIndex + pageSize - 1, customers.length);
     const totalEntries = customers.length;
 
+
+
+    const handlePageSizeChange = (newPageSize) => {
+        setPageSize(newPageSize);
+        setCurrentPage(1);
+        setTotalPages(Math.ceil(customers.length / newPageSize));
+    };
+
     const handlePreviousPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
@@ -45,6 +54,9 @@ const CustomerCustomersTable = ({accessToken}) => {
             setCurrentPage(currentPage + 1);
         }
     };
+
+    const isNextButtonDisabled = totalPages === 1 || currentPage === totalPages;
+
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCustomer, setSelectedCustomer] = useState(null); // Define selectedCustomer here
@@ -77,7 +89,7 @@ const CustomerCustomersTable = ({accessToken}) => {
         <CustomerCustomersContent>
             <div className="table-size">
                 Show
-                <select value={pageSize} onChange={(e) => setPageSize(e.target.value)}>
+                <select value={pageSize} onChange={(e) => handlePageSizeChange(e.target.value)}>
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
