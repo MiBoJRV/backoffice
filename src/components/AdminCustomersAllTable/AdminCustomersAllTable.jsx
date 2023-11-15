@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Navigate} from "react-router-dom";
+import useFetchCustomersAll from "../../hooks/useFetchCustomersAll.jsx";
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import useFetchCustomersAll from "../../hooks/useFetchCustomersAll.jsx";
-import CreateCustomerModal from "../CreateCustomerModal/CreateCustomerModal.jsx";
 import Modal from "../Modal/Modal.jsx";
+import CreateCustomerModal from "../CreateCustomerModal/CreateCustomerModal.jsx";
 import EditCustomerModalContent from "../EditCustomerModalСontent/EditCustomerModalContent.jsx";
 import useAdminCustomerUpdate from "../../hooks/useAdminCustomerUpdate.jsx";
 import edit from './../../assets/images/edit.svg';
@@ -13,6 +13,7 @@ import dataAr from './../../assets/images/data_ar.svg';
 import angleRight from './../../assets/images/angle-right.svg';
 import angleLeft from './../../assets/images/angle-left.svg';
 import {CustomersAllContent} from "./Styles.jsx";
+import {TableEntries} from "../TableEntries/TableEntries.jsx";
 
 
 const AdminCustomersAllTable = ({accessToken}) => {

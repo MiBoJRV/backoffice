@@ -215,6 +215,9 @@ export const DashboardContent = styled.div`
 
       .table-mobile {
         overflow-x: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
 
         & > div {
           display: flex;

@@ -50,9 +50,12 @@ export const CustomerCustomersContent = styled.div`
       padding: 10px;
       white-space: nowrap;
 
-      //&:last-of-type {
-      //  text-align: center;
-      //}
+      &.edit,
+      &.bin {
+        text-align: center;
+        width: 50px;
+      }
+      
     }
 
     td {
@@ -62,9 +65,9 @@ export const CustomerCustomersContent = styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-
-      &:last-of-type,
-      &:nth-last-child(2) {
+      
+      &.edit,
+      &.bin {
         text-align: center;
         width: 50px;
       }

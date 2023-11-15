@@ -18,10 +18,6 @@ export const TransactionsTableContent = styled.div`
       line-height: normal;
       text-align: left;
       padding: 10px;
-
-      //&:last-of-type {
-      //  text-align: center;
-      //}
     }
 
     td {
@@ -32,11 +28,10 @@ export const TransactionsTableContent = styled.div`
       font-weight: 400;
       line-height: normal;
 
-      &:last-of-type,
-      &:nth-last-child(2) {
-        text-align: center;
-        width: 50px;
-      }
+      //&:last-of-type,
+      //&:nth-last-child(2) {
+      //  width: 50px;
+      //}
 
       &.icon {
         padding: 0 10px;

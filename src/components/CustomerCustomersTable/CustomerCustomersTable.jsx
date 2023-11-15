@@ -95,7 +95,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                         <th>Date</th>
                         {userRole === 'Admin' && (<td></td>)}
                         {userRole === 'Admin' && (
-                            <td>
+                            <td className="edit">
                                 <img
                                     className="add"
                                     src={add}
@@ -116,7 +116,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                             <td>{customer.recoveredAmount}</td>
                             <td>{customer.date}</td>
                             {userRole === 'Admin' && (
-                                <td>
+                                <td className="edit">
                                     <img
                                         className="edit"
                                         src={edit}
@@ -128,7 +128,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                                 </td>
                             )}
                             {userRole === 'Admin' && (
-                                <td>
+                                <td className="bin">
                                     <img className="bin"
                                          src={bin}
                                          alt="icon"

@@ -57,12 +57,8 @@ export const Dashboard = ({...customerData}) => {
                 </div>
                 <div className="main-graph-chart">
                     <div className="worth_right chart-line"
-                         style={{width: '540px', height: '111px'}}
-                        // style={{maxWidth: '540px', width: '100%', maxHeight: '111px'}}
-                    >
-
+                         style={{width: '540px', height: '111px'}}>
                         <ChartsLine{...customerData}/>
-
                     </div>
                 </div>
             </div>
@@ -72,8 +68,6 @@ export const Dashboard = ({...customerData}) => {
                     <span>
                         <span>{customerData?.currencySymbol}</span>
                         <span>{customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0).toFixed(3)}</span>
-
-
                     </span>
                 </h2>
                 <div className="assets_table">
@@ -102,11 +96,13 @@ export const Dashboard = ({...customerData}) => {
                                             </div>
                                             <div className="group">
                                                 <span className="title"> Price</span>
-                                                <span className="data"><span className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}</span>
+                                                <span className="data"><span
+                                                    className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}</span>
                                             </div>
                                             <div className="group">
                                                 <span className="title">Total</span>
-                                                <span className="data"><span className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}</span>
+                                                <span className="data"><span
+                                                    className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -132,8 +128,12 @@ export const Dashboard = ({...customerData}) => {
                                         {asset.name}
                                     </td>
                                     <td>{asset.amount.toFixed(3)}</td>
-                                    <td><span className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}</td>
-                                    <td><span className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}</td>
+                                    <td><span
+                                        className={'symbol'}>{customerData?.currencySymbol}</span>{asset.price.toFixed(2)}
+                                    </td>
+                                    <td><span
+                                        className={'symbol'}>{customerData?.currencySymbol}</span>{(asset.amount * asset.price).toFixed(3)}
+                                    </td>
                                 </tr>
                             ))}
                             </tbody>
@@ -141,33 +141,15 @@ export const Dashboard = ({...customerData}) => {
                     )}
                 </div>
                 <div className="assets_charts">
-                    {/*<div className="main-graph-chart">*/}
-                    {/*    <div className="assets_charts-line" style={{width: '540px', height: '111px'}}>*/}
-                    {/*        <ChartsLine{...customerData}/>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                     <div className="assets_charts-doughnut">
                         <ChartsDoughnut{...customerData} />
                     </div>
                 </div>
             </div>
             <div className="second-graph-chart">
-
-                    {/*<div className="charts-line"*/}
-                    {/*     style={{*/}
-                    {/*         padding: '20px',*/}
-                    {/*         maxWidth: '958px',*/}
-                    {/*         minHeight: '369px',*/}
-                    {/*         height: '100%',*/}
-                    {/*         margin: '0 auto',*/}
-                    {/*         overflow: 'scroll',*/}
-                    {/*         width: '100%',*/}
-                    {/*         // overflow: 'hidden',*/}
-                    {/*     }}>*/}
-                    <div className="chart-line" style={{height: '369px', width: '958px'}}>
-                        <ChartsLine13 {...customerData}/>
-                    </div>
-
+                <div className="chart-line" style={{height: '369px', width: '958px'}}>
+                    <ChartsLine13 {...customerData}/>
+                </div>
             </div>
         </DashboardContent>
     )
