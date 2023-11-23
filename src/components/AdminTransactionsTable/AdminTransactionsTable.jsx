@@ -66,7 +66,7 @@ const TableCell = styled.td`
   background-color: inherit !important; /* Щоб можна було успадковувати фон від TableRow */
   
   .symbol {
-    margin-right: 5px;
+    margin-right: 0;
   }
 `;
 

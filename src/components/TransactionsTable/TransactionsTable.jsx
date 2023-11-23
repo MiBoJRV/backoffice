@@ -80,9 +80,9 @@ const TransactionsTable = ({...customerData}) => {
 
     const TableCell = styled.td`
   background-color: inherit !important; /* Щоб можна було успадковувати фон від TableRow */
-      .symbol {
-        margin-right: 5px;
-      }
+      //.symbol {
+      //  margin-right: 5px;
+      //}
 `;
 
     return (

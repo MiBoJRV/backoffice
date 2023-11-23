@@ -119,7 +119,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                             <td>{customer.name}</td>
                             <td>{customer.status}</td>
                             <td>{customer.country}</td>
-                            <td>{customer.recoveredAmount}</td>
+                            <td>${customer.recoveredAmount}</td>
                             <td>{customer.date}</td>
                             {userRole === 'Admin' && (
                                 <td className="edit">

@@ -9,9 +9,9 @@ export const ClientsPortfolioContent = styled.div`
     background: var(--Radial, radial-gradient(50% 50% at 50% 50%, #4F00FF 0%, #2D018F 100%));
   }
   
-  .symbol {
-    margin-right: 5px;
-  }
+  //.symbol {
+  //  margin-right: 5px;
+  //}
 
   h2 {
     color: #1C0371;

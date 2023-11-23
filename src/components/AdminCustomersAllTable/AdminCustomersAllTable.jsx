@@ -149,7 +149,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                             <td>{customer.email}</td>
                             <td>{customer.phone}</td>
                             <td>{customer.caseNumber}</td>
-                            <td>{customer.totalWorth}</td>
+                            <td>${customer.totalWorth}</td>
                             <td>{customer.caseStarted}</td>
                             <td>
                                 <img

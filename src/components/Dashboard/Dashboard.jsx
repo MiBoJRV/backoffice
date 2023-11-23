@@ -22,9 +22,9 @@ export const Dashboard = ({...customerData}) => {
 
     const differenceAmountValue = parseFloat(customerData?.differenceAmount);
     const isNegative = differenceAmountValue < 0;
-    const formattedDifferenceAmount = `${customerData?.currencySymbol} ${isNegative ? "-" : "+"}${Math.abs(
+    const formattedDifferenceAmount = `${isNegative ? "-" : "+"}${Math.abs(
         differenceAmountValue
-    ).toFixed(2)}`;
+    )}${customerData?.currencySymbol}`;
 
     const cryptoIconPath = '/src/assets/images/cryptoIcon/'
 
@@ -67,7 +67,7 @@ export const Dashboard = ({...customerData}) => {
                     <span>Assets</span>
                     <span>
                         <span>{customerData?.currencySymbol}</span>
-                        <span>{customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0).toFixed(3)}</span>
+                        <span>{customerData?.assets.reduce((total, asset) => total + asset.amount * asset.price, 0)}</span>
                     </span>
                 </h2>
                 <div className="assets_table">
