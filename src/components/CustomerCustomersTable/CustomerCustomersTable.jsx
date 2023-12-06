@@ -97,7 +97,7 @@ const CustomerCustomersTable = ({accessToken}) => {
                         <th>Name</th>
                         <th>Status</th>
                         <th>Country</th>
-                        <th>Recovered amount</th>
+                        <th>Recovered Amount</th>
                         <th>Date</th>
                         {userRole === 'Admin' && (<td></td>)}
                         {userRole === 'Admin' && (

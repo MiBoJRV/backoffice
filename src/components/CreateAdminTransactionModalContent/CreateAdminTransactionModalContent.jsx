@@ -154,7 +154,7 @@ const CreateAdminTransactionModalContent = ({isOpen, onClose, onCreate}) => {
                         <input type="text" name="country" value={formData.country} onChange={handleInputChange}/>
                     </div>
                     <div>
-                        <label htmlFor="recoveredAmount">Recovered Amount</label>
+                        <label htmlFor="recoveredAmount">Fee Amount</label>
                         <input type="text" name="recoveredAmount" value={formData.recoveredAmount} onChange={handleInputChange}/>
                     </div>
                     <div>

@@ -148,7 +148,7 @@ const AdminTransactionsTable = ({isTransactionCreateModalOpen, setIsTransactionC
                         <th>Status</th>
                         <th>Description</th>
                         <th>Address wallet</th>
-                        <th>Recovered Amount</th>
+                        <th>Fee Amount</th>
                         <th>Date</th>
                         <th></th>
                         <th></th>

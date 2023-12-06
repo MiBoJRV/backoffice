@@ -8,6 +8,7 @@ import CreateCustomerModal from "../CreateCustomerModal/CreateCustomerModal.jsx"
 import EditCustomerModalContent from "../EditCustomerModalСontent/EditCustomerModalContent.jsx";
 import useAdminCustomerUpdate from "../../hooks/useAdminCustomerUpdate.jsx";
 import edit from './../../assets/images/edit.svg';
+import del from './../../assets/images/bin.svg';
 import search from './../../assets/images/search.svg';
 import dataAr from './../../assets/images/data_ar.svg';
 import angleRight from './../../assets/images/angle-right.svg';
@@ -102,6 +103,37 @@ const AdminCustomersAllTable = ({ accessToken }) => {
         console.log(customerId.id);
     };
 
+    // const handleDeletePageCustomer = (customerId) => {
+    //     // setSelectedCustomerId(customerId.id);
+    //     // setRedirectToCustomer(true);
+    //     console.log(customerId.id);
+    // };
+
+    const handleDeletePageCustomer = async (customerId) => {
+        console.log(customerId.id);
+        try {
+            const accessToken = localStorage.getItem('accessToken');
+            const apiUrl = `https://highdardata.xyz/office/v1/customers/delete?id=${customerId.id}`;
+
+            const response = await fetch(apiUrl, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            if (response.ok) {
+                // Успішне видалення, оновіть дані
+                await fetchCustomers();
+            } else {
+                console.error('Error deleting customer:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error deleting customer:', error);
+        }
+    };
+
+
     if (redirectToCustomer && selectedCustomerId) {
         return <Navigate to={`/admin/customer?id=${selectedCustomerId}`}/>;
     }
@@ -139,6 +171,7 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                         <th>Recovered Amount</th>
                         <th>Date</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -158,6 +191,16 @@ const AdminCustomersAllTable = ({ accessToken }) => {
                                     alt="icon"
                                     onClick={() => {
                                         handleEditPageCustomer(customer);
+                                    }}
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    className="edit"
+                                    src={del}
+                                    alt="icon"
+                                    onClick={() => {
+                                        handleDeletePageCustomer(customer);
                                     }}
                                 />
                             </td>

@@ -19,8 +19,8 @@ export const RecoveryPortfolio = ({...customerData}) => {
                         Total Loss:
                     </h3>
                     <span className="total-loss">
-                        <span>{customerData.currencySymbol}</span>
                         <span>{customerData.totalLoss}</span>
+                        <span>{customerData.currencySymbol}</span>
                     </span>
 
                 </li>
@@ -30,8 +30,8 @@ export const RecoveryPortfolio = ({...customerData}) => {
                         Total Recovered:
                     </h3>
                     <span className="total-recovered">
-                        <span>{customerData.currencySymbol}</span>
                         <span>{customerData.totalRecovered}</span>
+                        <span>{customerData.currencySymbol}</span>
                     </span>
 
                 </li>

@@ -149,7 +149,7 @@ const EditAdminTransactionModalContent = ({ onSave, onClose, onCreate, editTrans
                         />
                     </div>
                     <div>
-                        <label htmlFor="recoveredAmount">Recovered Amount</label>
+                        <label htmlFor="recoveredAmount">Fee Amount</label>
                         <input
                             type="text"
                             id="recoveredAmount"

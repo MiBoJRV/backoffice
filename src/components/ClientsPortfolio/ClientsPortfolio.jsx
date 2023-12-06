@@ -30,8 +30,8 @@ export const ClientsPortfolio = ({...customerData}) => {
                     <h3>
                         Amount recovered:
                     </h3>
-                    <span className="symbol">{customerData.currencySymbol}</span>
                     <span>{customerData.amountRecovered}</span>
+                    <span className="symbol">{customerData.currencySymbol}</span>
 
                 </li>
                 <li>
