@@ -49,6 +49,7 @@ export const MainContent = styled ('div')`
         display: flex;
         gap: 5px;
         align-items: center;
+        position: relative;
 
         @media only screen and (max-width: 768px) {
           width: 100%;
@@ -57,6 +58,14 @@ export const MainContent = styled ('div')`
         label {
           white-space: nowrap;
           font-weight: 700;
+        }
+
+        .error-message {
+          position: absolute;
+          bottom: -21px;
+          left: 0;
+          font-size: 12px;
+          color: red;
         }
       }
     }
