@@ -36,6 +36,7 @@ export const PersonalInfoContent = styled.div`
       gap: 10px;
       min-width: 260px;
       width: calc(35% - 50px);
+      overflow: hidden;
       
       .label {
         font-weight: 700;

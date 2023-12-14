@@ -48,6 +48,7 @@ export const CreateCustomerModalContent = styled ('div')`
         padding: 10px;
         display: flex;
         gap: 5px;
+        position: relative;
         
         @media only screen and (max-width: 480px) {
         width: 100%;
@@ -66,6 +67,14 @@ export const CreateCustomerModalContent = styled ('div')`
           font-weight: 400;
           line-height: normal;
           width: 100%;
+        }
+        
+        .error-message {
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            font-size: 12px;
+            color: red;
         }
       }
     }
